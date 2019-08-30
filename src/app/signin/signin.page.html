@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-img class="img" src = './assets/img/pair.png'></ion-img>
+  <ion-item>
+    <ion-input type="text"  placeholder = "Username" name="username" [(ngModel)]="username">
+      
+    </ion-input>
+  </ion-item>
+  
+    <ion-item class="sign">
+        <ion-input type="password" placeholder = "Password" name="password" [(ngModel)]="password">
+          
+        </ion-input>
+      </ion-item>
+     
+        
+        <ion-button class="signup" (click)="login()">Log in</ion-button>
+        <h6 routerLink="/signup" class="already">Or create an account</h6>
+
+</ion-content>

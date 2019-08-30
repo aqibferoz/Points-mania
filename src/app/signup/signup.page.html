@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <ion-item>
+    <ion-input  placeholder = "Username" (ionChange)="uName($event)" name="username" [(ngModel)]="username">
+      
+    </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-input  placeholder = "Email" name="email" [(ngModel)]="email">
+        
+      </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input  type="password" placeholder = "Password" name="password" [(ngModel)]="password">
+          
+        </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-input type="password"  placeholder = "Re-type Password" name="repassword" [(ngModel)]="rePassword">
+            
+          </ion-input>
+        </ion-item>
+        <small *ngIf="available==true" style="color:rgb(168, 30, 30) !important"> User Name Already taken !</small>
+        <small *ngIf="password!=rePassword" style="color:red !important"> Password not Matched</small>
+        <h6>Note: Others users will be able to see your username</h6>
+
+        <ion-button class="signup" (click)="register()" >Sign up</ion-button>
+        <h6 (click) = "signIn()" class="already">Already have an account?  </h6>
+
+</ion-content>
