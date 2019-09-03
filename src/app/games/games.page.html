@@ -94,29 +94,36 @@
             <!-- <div *ngSwitchCase="'products'"> -->
             <ion-row no-padding>
               <ion-col size = '6'>
-                <ion-card (click) = "product()">
+                <ion-card (click) = "product()" style="margin:2px">
                     <img src="../../assets/folder/a.jpg" />
-                  
-                    <ion-card-content>
+                    <ion-card-header style="padding: 5px">
+                        <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+                        <ion-card-title style="font-size: 17px;">Madison, WI</ion-card-title>
+                      </ion-card-header>
+                    <ion-card-content style="padding: 10px">
+                     
                       Founded in 1829 on an e Wisconsin Territory in 1836.
                       
                     </ion-card-content>
                     <ion-label class="price">990$</ion-label>
                   </ion-card>
                 </ion-col>
-
                 <ion-col size = '6'>
-                    <ion-card>
+                    <ion-card (click) = "product()" style="margin:2px">
                         <img src="../../assets/folder/a.jpg" />
-                        <ion-card-header>
-                          <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
-                          <ion-card-title>Madison, WI</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Founded inl of the Wisconsin Territory in 1836.
+                        <ion-card-header style="padding: 5px">
+                            <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+                            <ion-card-title style="font-size: 17px;">Madison, WI</ion-card-title>
+                          </ion-card-header>
+                        <ion-card-content style="padding: 10px">
+                         
+                          Founded in 1829 on an e Wisconsin Territory in 1836.
+                          
                         </ion-card-content>
+                        <ion-label class="price">990$</ion-label>
                       </ion-card>
                     </ion-col>
+              
                 </ion-row>
 
                 
