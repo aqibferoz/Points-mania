@@ -6,16 +6,27 @@
 
 <ion-content>
 <ion-grid>
-  <ion-row>
+    <ion-row *ngIf="this.api.order.cart.length==0">
+        <ion-col size="12" style="text-align: center">
+        
+              <p style="padding: 10px !important">Cart is empty</p>
+             
+           
+          
+    
+     
+      </ion-col>
+    </ion-row>
+  <ion-row *ngFor="let item of this.api.order.cart">
     <ion-col size="12">
       <ion-row>
         <ion-col size="3">
-          <img src="../../assets/images/download.jpg">
+          <img [src]="item.product.image">
         </ion-col>
         <ion-col size="7">
-          <p style="margin: 0px !important">Heavy blend design dummy feature</p>
-          <div style="margin-top: 5px"> <span style="color: grey"> Black</span></div>
-          <div style="margin-top: 8px"> <span style="color: rgb(253, 125, 51);font-size: 20px"> $14.32</span></div>
+          <p style="margin: 0px !important">{{item.product.name}}</p>
+          <div style="margin-top: 5px"> <span style="color: grey"> {{item.product.color}}</span></div>
+          <div style="margin-top: 8px"> <span style="color: rgb(253, 125, 51);font-size: 20px"> {{item.product.price}}</span></div>
        
         </ion-col>
         <ion-col size="2" style="margin:auto;    background: #f78c1e;
@@ -25,6 +36,13 @@
         
         </ion-col>
       </ion-row>
+      <ion-row style="border: 1px solid Orange">
+        <ion-item lines="none" no-padding style="    font-family: monospace;
+      
+        padding: 0px 0px 0px 22px;">
+{{item.product.price}} x {{item.quantity}} = {{item.product.price * item.quantity}}
+        </ion-item>
+      </ion-row>
     </ion-col>
   </ion-row>
 </ion-grid>
@@ -33,10 +51,11 @@
 <ion-footer class="footer">
     <ion-row style="margin: auto !important;     background: #f78c1e;">
       <ion-col size="6" style="margin: auto !important;" >
-<ion-label style="font-size: 35px;color:white;padding: 5px"> $75.00</ion-label>
+<ion-label style="font-size: 30px;color:white;padding: 5px"> {{totalAmount}}</ion-label>
     </ion-col>
-    <ion-col size="6" style="margin: auto !important;" >
-        <ion-label style="font-size: 25px;color:white"> CheckOut</ion-label>
+    <ion-col size="6" style="margin: auto !important;    text-align: right;
+    padding: 10px;" >
+        <ion-label style="font-size: 25px;color:white"> Checkout<ion-icon style="font-size: 25px;color:white" name="cart"></ion-icon></ion-label>
       </ion-col>
 </ion-row>
  
