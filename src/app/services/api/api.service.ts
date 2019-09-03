@@ -5,7 +5,14 @@ import { firestore } from 'firebase';
   providedIn: 'root'
 })
 export class ApiService {
-
+order={
+  cart:[],
+  customerId:'',
+  customerUserName:'',
+  totalAmount:0,
+  customerEmail:'',
+  
+}
   constructor(private afs:AngularFirestore) { }
   createUser(id, data){
     return this.afs.doc('users/' + id).set(data);
