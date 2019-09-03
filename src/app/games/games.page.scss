@@ -1,16 +1,23 @@
 .segement{
     height: 40px !important;
 }
-.footer{
-    position: fixed !important;
-    bottom: 0px !important;
-}
+
 .icon{
     position: absolute !important;
     right: 8px !important;
     width: 20px !important;
     height: 20px !important;
 }
+.footer{
+    position: fixed !important;
+    bottom: 0px !important;
+}
 .ion-btn{
     width: 170px !important;
+}
+.price{
+    color: red;
+    font-size: 25px;
+    font-family: monospace;
+    padding: 10px 0 0 12px;
 }

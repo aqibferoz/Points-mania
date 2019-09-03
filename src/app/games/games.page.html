@@ -6,23 +6,24 @@
 
      
   </ion-toolbar>
-  <ion-segment class="segement" [(ngModel)]="request" value="javascript">
+  <!-- <ion-segment class="segement" [(ngModel)]="request" value="javascript">
       <ion-segment-button value="games" class="segment-activated">
         <ion-label>Games</ion-label>
       </ion-segment-button>
       <ion-segment-button value="products">
         <ion-label>Products</ion-label>
       </ion-segment-button>
-    </ion-segment>
+    </ion-segment> -->
 </ion-header>
 
 <ion-content>
 
     
-
+<!-- 
       <div [ngSwitch]="request" style="padding:0px !important">
 
-          <div *ngSwitchCase="'games'" style="padding:0px !important">
+          <div *ngSwitchCase="'games'" style="padding:0px !important"> -->
+
 <ion-grid>
   <ion-row style="margin-left: auto !important; margin-right: auto !important;">
     <ion-col size = 3>
@@ -87,26 +88,25 @@
 
 
 
-            </div>
+            <!-- </div> -->
 
-            <div *ngSwitchCase="'products'">
+            <!-- <div *ngSwitchCase="'products'"> -->
             <ion-row no-padding>
               <ion-col size = '6'>
                 <ion-card (click) = "product()">
-                    <img src="./madison.jpg" />
-                    <ion-card-header>
-                      <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
-                      <ion-card-title>Madison, WI</ion-card-title>
-                    </ion-card-header>
+                    <img src="../../assets/folder/a.jpg" />
+                  
                     <ion-card-content>
                       Founded in 1829 on an e Wisconsin Territory in 1836.
+                      
                     </ion-card-content>
+                    <ion-label class="price">990$</ion-label>
                   </ion-card>
                 </ion-col>
 
                 <ion-col size = '6'>
                     <ion-card>
-                        <img src="./madison.jpg" />
+                        <img src="../../assets/folder/a.jpg" />
                         <ion-card-header>
                           <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
                           <ion-card-title>Madison, WI</ion-card-title>
@@ -117,20 +117,11 @@
                       </ion-card>
                     </ion-col>
                 </ion-row>
-            </div>
-            </div>
 
-            <ion-footer class="footer">
-                <ion-row style="margin: auto !important;">
-                  <ion-col size='6' style="margin: auto !important;" >
-                  <ion-button class="ion-btn">Buy Now</ion-button>
-                </ion-col>
+                
+            <!-- </div> -->
+            <!-- </div> -->
 
-                <ion-col size = '6' style="margin: auto !important;">
-                  <ion-button class="ion-btn">Add to cart</ion-button>
-                </ion-col>
-                </ion-row>
-              
-              </ion-footer>
+           
 
 </ion-content>
