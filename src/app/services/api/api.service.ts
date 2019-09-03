@@ -28,4 +28,22 @@ export class ApiService {
   getUser(id){
     return this.afs.doc('users/'+id).valueChanges();
   }
+  getGames(){
+    return this.afs.collection('users').snapshotChanges();
+  }
+  getSingleGame(id){
+    return this.afs.doc('games/'+id).valueChanges();
+  }
+  getSingleProduct(id){
+    return this.afs.doc('products/'+id).valueChanges();
+  }
+  getProducts(){
+    return this.afs.collection('products').snapshotChanges();
+  }
+  getPlayCards(){
+    return this.afs.collection('games',ref=>ref.where('catagory','==','playcards')).snapshotChanges();
+  }
+  placeOrder(data){
+    return this.afs.collection('orders').add(data);
+  }
 }

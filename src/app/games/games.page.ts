@@ -15,4 +15,7 @@ export class GamesPage implements OnInit {
   product(){
 this.router.navigate(['/product'])
   } 
+  cart(){
+   this.router.navigate(['cart']); 
+  }
 }
