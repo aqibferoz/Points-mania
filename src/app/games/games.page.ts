@@ -19,8 +19,8 @@ products;
     this.getPlayCard();
     this.getProducts();
   }
-  product(){
-this.router.navigate(['/product'])
+  product(id){
+this.router.navigate(['product/'+id])
   } 
   cart(){
    this.router.navigate(['cart']); 

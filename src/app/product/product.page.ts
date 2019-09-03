@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -9,7 +9,17 @@ import { Router } from '@angular/router';
 })
 export class ProductPage implements OnInit {
 quantity:number=1;
-  constructor(private api:ApiService,private router:Router) { }
+prdId;
+prd;
+  constructor(private api:ApiService,private router:Router,private route:ActivatedRoute) { 
+
+this.prdId=this.route.snapshot.paramMap.get('id');
+console.log(this.prdId);
+this.api.getSingleProduct(this.prdId).subscribe(res=>{
+this.prd=res;
+console.log(this.prd);
+})
+  }
 
   ngOnInit() {
   }
@@ -25,8 +35,9 @@ quantity:number=1;
   }
   addToCart(){
     let data={
-      product:this.item,
-      quantity:this.quantity
+      product:this.prd,
+      quantity:this.quantity,
+      generalTotal:this.prd.price*this.quantity
     }
     this.api.order.cart.push(data);
     localStorage.setItem('productCart', JSON.stringify(this.api.order.cart));
@@ -35,8 +46,9 @@ quantity:number=1;
   }
   buyNow(){
     let data={
-      product:this.item,
-      quantity:this.quantity
+      product:this.prd,
+      quantity:this.quantity,
+      generalTotal:this.prd.price*this.quantity
     }
     this.api.order.cart.push(data);
     localStorage.setItem('productCart', JSON.stringify(this.api.order.cart));
