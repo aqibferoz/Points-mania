@@ -42,74 +42,79 @@ export class SigninPage implements OnInit {
     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
   async login() {
-    this.helper.presentLoading('Recognising your Request');
-    console.log(this.validateEmail(this.username));
-    if (await this.validateEmail(this.username) == true) {
-      this.auth.login(this.username, this.password).then(res => {
-        this.helper.dismissLoad();
-        this.helper.presentToast('Login successfully')
-      
-        this.router.navigate(['/games'])
-        console.log('loged in')
-      })
-        .catch((error) => {
-          console.log(error);
-          // User couldn't sign in (bad verification code?)
-          this.helper.presentToast(error.message);
+    if(this.username!=null && this.username!='' && this.password!=null && this.password!=''){
+      this.helper.presentLoading('Recognising your Request');
+      console.log(this.validateEmail(this.username));
+      if (await this.validateEmail(this.username) == true) {
+        this.auth.login(this.username, this.password).then(res => {
           this.helper.dismissLoad();
-          // ...
-        });
-    }
-    else {
-
-      this.api.checkUser(this.username).pipe(map(list => list.map(item => {
-        let data = item.payload.doc.data();
-        let id = item.payload.doc.id;
-        return { data }
-      })),first()).toPromise().then((res: any) => {
-        console.log(res)
-        if (res) {
-          if (res.length > 0) {
-            this.email = res[0].data.email;
-            this.auth.login(this.email, this.password).then(res => {
-              this.helper.dismissLoad();
-              this.helper.presentToast('Login successfully')
-              localStorage.setItem('userId',res.user.uid);
-              this.router.navigateByUrl('/games');
-              console.log('loged in')
-            })
-              .catch((error) => {
-                console.log(error);
-
-                // User couldn't sign in (bad verification code?)
-                this.helper.presentToast(error.message);
+          this.helper.presentToast('Login successfully')
+        
+          this.router.navigate(['/games'])
+          console.log('loged in')
+        })
+          .catch((error) => {
+            console.log(error);
+            // User couldn't sign in (bad verification code?)
+            this.helper.presentToast(error.message);
+            this.helper.dismissLoad();
+            // ...
+          });
+      }
+      else {
+  
+        this.api.checkUser(this.username).pipe(map(list => list.map(item => {
+          let data = item.payload.doc.data();
+          let id = item.payload.doc.id;
+          return { data }
+        })),first()).toPromise().then((res: any) => {
+          console.log(res)
+          if (res) {
+            if (res.length > 0) {
+              this.email = res[0].data.email;
+              this.auth.login(this.email, this.password).then(res => {
                 this.helper.dismissLoad();
-                // ...
-              });
+                this.helper.presentToast('Login successfully')
+                localStorage.setItem('userId',res.user.uid);
+                this.router.navigateByUrl('/games');
+                console.log('loged in')
+              })
+                .catch((error) => {
+                  console.log(error);
+  
+                  // User couldn't sign in (bad verification code?)
+                  this.helper.presentToast(error.message);
+                  this.helper.dismissLoad();
+                  // ...
+                });
+            }
+            else {
+              this.helper.dismissLoad();
+              console.log("usernot exist");
+  
+              this.helper.presentToast('User doesnot exist');
+  
+            }
           }
           else {
+  
             this.helper.dismissLoad();
-            console.log("usernot exist");
-
-            this.helper.presentToast('User doesnot exist');
-
+            this.helper.presentToast("good")
+            console.log(res);
           }
-        }
-        else {
-
+  
+        })
+        error => {
           this.helper.dismissLoad();
-          this.helper.presentToast("good")
-          console.log(res);
+          this.helper.presentToast(error);
+  
+          // this.errors = error
         }
-
-      })
-      error => {
-        this.helper.dismissLoad();
-        this.helper.presentToast(error);
-
-        // this.errors = error
       }
+    }else{
+      this.helper.presentToast('Please Fill all fields')
     }
+   
 
 
 
