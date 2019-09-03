@@ -6,55 +6,14 @@
 
      
   </ion-toolbar>
-  <ion-segment class="segement" [(ngModel)]="request" value="javascript">
-      <ion-segment-button value="games" class="segment-activated">
-        <ion-label>Games</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="products">
-        <ion-label>Products</ion-label>
-      </ion-segment-button>
-    </ion-segment>
+
 </ion-header>
 
 <ion-content>
 
     
-
-      <div [ngSwitch]="request" style="padding:0px !important">
-
-          <div *ngSwitchCase="'games'" style="padding:0px !important">
-<ion-grid>
-  <ion-row style="margin-left: auto !important; margin-right: auto !important;">
-    <ion-col size = 3>
-      <ion-avatar>
-      <ion-img class="backimage2" src="../assets/folder/1.png"></ion-img>
-    </ion-avatar>
-      <ion-label>Narnia</ion-label>
-    </ion-col>
-
-    <ion-col size = 3>
-        <ion-avatar>
-      <ion-img class="backimage2" src="../assets/folder/2.jpg"></ion-img>
-      </ion-avatar>
-      <ion-label>Narnia</ion-label>
-    </ion-col>
-
-    <ion-col size = 3>
-        <ion-avatar>
-      <ion-img class="backimage2" src="../assets/folder/3.jpg"></ion-img>
-      </ion-avatar>
-      <ion-label>Narnia</ion-label>
-    </ion-col>
-
-    <ion-col size = 3>
-        <ion-avatar>
-      <ion-img class="backimage2" src="../assets/folder/4.jpg"></ion-img>
-      </ion-avatar> 
-      <ion-label>Narnia</ion-label>
-    </ion-col>
-  </ion-row>
-
-  <ion-row style="margin-left: auto !important; margin-right: auto !important;">
+  <ion-grid>
+    <ion-row style="margin-left: auto !important; margin-right: auto !important;">
       <ion-col size = 3>
         <ion-avatar>
         <ion-img class="backimage2" src="../assets/folder/1.png"></ion-img>
@@ -83,42 +42,65 @@
         <ion-label>Narnia</ion-label>
       </ion-col>
     </ion-row>
-</ion-grid>
+  
+    <ion-row style="margin-left: auto !important; margin-right: auto !important;">
+        <ion-col size = 3>
+          <ion-avatar>
+          <ion-img class="backimage2" src="../assets/folder/1.png"></ion-img>
+        </ion-avatar>
+          <ion-label>Narnia</ion-label>
+        </ion-col>
+    
+        <ion-col size = 3>
+            <ion-avatar>
+          <ion-img class="backimage2" src="../assets/folder/2.jpg"></ion-img>
+          </ion-avatar>
+          <ion-label>Narnia</ion-label>
+        </ion-col>
+    
+        <ion-col size = 3>
+            <ion-avatar>
+          <ion-img class="backimage2" src="../assets/folder/3.jpg"></ion-img>
+          </ion-avatar>
+          <ion-label>Narnia</ion-label>
+        </ion-col>
+    
+        <ion-col size = 3>
+            <ion-avatar>
+          <ion-img class="backimage2" src="../assets/folder/4.jpg"></ion-img>
+          </ion-avatar> 
+          <ion-label>Narnia</ion-label>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+  <ion-row no-padding>
+    <ion-col size = '6'>
+      <ion-card (click) = "product()">
+          <img src="./madison.jpg" />
+          <ion-card-header>
+            <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+            <ion-card-title>Madison, WI</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Founded in 1829 on an e Wisconsin Territory in 1836.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
 
-
-
-            </div>
-
-            <div *ngSwitchCase="'products'">
-            <ion-row no-padding>
-              <ion-col size = '6'>
-                <ion-card (click) = "product()">
-                    <img src="./madison.jpg" />
-                    <ion-card-header>
-                      <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
-                      <ion-card-title>Madison, WI</ion-card-title>
-                    </ion-card-header>
-                    <ion-card-content>
-                      Founded in 1829 on an e Wisconsin Territory in 1836.
-                    </ion-card-content>
-                  </ion-card>
-                </ion-col>
-
-                <ion-col size = '6'>
-                    <ion-card>
-                        <img src="./madison.jpg" />
-                        <ion-card-header>
-                          <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
-                          <ion-card-title>Madison, WI</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Founded inl of the Wisconsin Territory in 1836.
-                        </ion-card-content>
-                      </ion-card>
-                    </ion-col>
-                </ion-row>
-            </div>
-            </div>
+      <ion-col size = '6'>
+          <ion-card>
+              <img src="./madison.jpg" />
+              <ion-card-header>
+                <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+                <ion-card-title>Madison, WI</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Founded inl of the Wisconsin Territory in 1836.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+      </ion-row>
+   
 
             <ion-footer class="footer">
                 <ion-row style="margin: auto !important;">
