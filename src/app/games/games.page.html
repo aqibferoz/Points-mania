@@ -27,64 +27,23 @@
 
 <ion-grid>
   <ion-row>
-    <ion-col size = 3>
+    <ion-col size = 3 *ngFor="let item of games">
       <ion-avatar class="backimage2">
-      <ion-img  src="../assets/folder/1.png"></ion-img>
+      <ion-img  [src]="item.image"></ion-img>
     </ion-avatar>
-      <div class="lab">San andreas</div>
+      <div class="lab">{{item.name}}</div>
     </ion-col>
-
     <ion-col size = 3>
         <ion-avatar class="backimage2">
-      <ion-img  src="../assets/folder/2.jpg"></ion-img>
+        <ion-img  src="../assets/folder/play.png"></ion-img>
       </ion-avatar>
-      <div class="lab">Narnia & Pubg</div>
-    </ion-col>
+        <div class="lab">PlayCards</div>
+      </ion-col>
 
-    <ion-col size = 3>
-        <ion-avatar class="backimage2">
-      <ion-img src="../assets/folder/3.jpg"></ion-img>
-      </ion-avatar>
-      <div class="lab">Delta force</div>
-    </ion-col>
 
-    <ion-col size = 3>
-        <ion-avatar class="backimage2">
-      <ion-img src="../assets/folder/4.jpg"></ion-img>
-      </ion-avatar> 
-      <div class="lab">Age of Empires</div>
-    </ion-col>
   </ion-row>
 
-  <ion-row>
-    <ion-col size = 3>
-      <ion-avatar class="backimage2">
-      <ion-img  src="../assets/folder/1.png"></ion-img>
-    </ion-avatar>
-      <div class="lab">Narnia</div>
-    </ion-col>
 
-    <ion-col size = 3>
-        <ion-avatar class="backimage2">
-      <ion-img  src="../assets/folder/2.jpg"></ion-img>
-      </ion-avatar>
-      <div class="lab">Narnia & Pubg</div>
-    </ion-col>
-
-    <ion-col size = 3>
-        <ion-avatar class="backimage2">
-      <ion-img src="../assets/folder/3.jpg"></ion-img>
-      </ion-avatar>
-      <div class="lab">Narnia</div>
-    </ion-col>
-
-    <ion-col size = 3>
-        <ion-avatar class="backimage2">
-      <ion-img src="../assets/folder/4.jpg"></ion-img>
-      </ion-avatar> 
-      <div class="lab">Narnia</div>
-    </ion-col>
-  </ion-row>
 </ion-grid>
 
 

@@ -11,7 +11,7 @@ order={
   customerUserName:'',
   totalAmount:0,
   customerEmail:'',
-  
+
 }
   constructor(private afs:AngularFirestore) { }
   createUser(id, data){
@@ -36,7 +36,7 @@ order={
     return this.afs.doc('users/'+id).valueChanges();
   }
   getGames(){
-    return this.afs.collection('users').snapshotChanges();
+    return this.afs.collection('games',ref=>ref.where('catagory','==','game')).snapshotChanges();
   }
   getSingleGame(id){
     return this.afs.doc('games/'+id).valueChanges();
