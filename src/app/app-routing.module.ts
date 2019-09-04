@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'signin', loadChildren: './signin/signin.module#SigninPageModule' },
   { path: 'games', loadChildren: './games/games.module#GamesPageModule' },
   { path: 'product/:id', loadChildren: './product/product.module#ProductPageModule' },
-  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
+  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },  { path: 'playcards', loadChildren: './playcards/playcards.module#PlaycardsPageModule' },
+
 
 ];
 
