@@ -2,7 +2,8 @@
     
   <ion-toolbar>
 <ion-title>Categories</ion-title>
-<ion-icon (click)="cart()" class="icon" slot = 'end' ios="ios-cart" md="md-cart"></ion-icon>
+<ion-icon (click)="cart()" class="hicon" slot = 'end' ios="ios-cart" md="md-cart"></ion-icon>
+<ion-badge color="primary" class="badge">{{api.order.cart.length}}</ion-badge>
 
      
   </ion-toolbar>

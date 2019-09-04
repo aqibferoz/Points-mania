@@ -5,6 +5,8 @@
               <ion-back-button defaultHref="games"></ion-back-button>
             </ion-buttons>
     <ion-title>product</ion-title>
+    <ion-icon routerLink="/cart" class="hicon" slot = 'end' ios="ios-cart" md="md-cart"></ion-icon>
+    <ion-badge color="primary" class="badge">{{api.order.cart.length}}</ion-badge>
   </ion-toolbar>
 </ion-header>
 
