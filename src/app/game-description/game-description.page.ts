@@ -71,9 +71,13 @@ this.prd.packages.map(ele=>{
     return ele['selected']=false
   }
 })
-console.log(this.prd);
+// console.log(this.prd);
 this.selectedPackage=item;
 console.log(this.selectedPackage);
+this.prd.quantity=this.selectedPackage.quantity;
+this.prd.price=this.selectedPackage.amount;
+this.prd.type=this.selectedPackage.type;
+console.log(this.prd);
 
   }
 }
