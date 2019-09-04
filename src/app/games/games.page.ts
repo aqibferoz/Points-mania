@@ -56,4 +56,8 @@ console.log(this.games);
     console.log(this.playcards);
     })
   }
+  playCards(id){
+    console.log(id);
+    this.router.navigate(['/game-description/'+id]);
+  }
 }

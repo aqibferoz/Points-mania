@@ -1,9 +1,70 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>game-description</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+  
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="games"></ion-back-button>
+          </ion-buttons>
+  <ion-title >Game </ion-title>
+
+  <ion-icon routerLink="/cart" class="hicon" slot = 'end' ios="ios-cart" md="md-cart"></ion-icon>
+  <ion-badge color="primary" class="badge">{{api.order.cart.length}}</ion-badge>
+</ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-card style="height: 100%" *ngIf="this.prd" style="margin-bottom: 70px !important ; box-shadow: none;">
+        <!-- <ion-card-header> -->
+          <img class="img-style" [src]="prd.image" />
+            
+   
+          <ion-card-title class="title">{{prd.name}}</ion-card-title>
+        <!-- </ion-card-header> -->
+      
+        <ion-card-content>
+  {{prd.description}}
 
+  <ion-row>
+    <ion-col size="2">
+      <img src="../../assets/icon/diamond.svg">
+    </ion-col>
+  </ion-row>
+        </ion-card-content>
+      
+        
+        <ion-card-content *ngIf="prd.inputs.length>0">
+          <div class="div-style">
+            <ion-input *ngIf="this.usernameinput" placeholder = "Enter Username">
+  
+            </ion-input>  
+            <ion-input *ngIf="this.playeridinput" placeholder = "Enter Player ID">
+  
+            </ion-input>
+            <ion-input *ngIf="this.emailinput" placeholder = "Enter Email">
+  
+              </ion-input>  
+              <ion-input *ngIf="this.passwordinput" placeholder = "Enter Password">
+  
+                </ion-input>  
+                <ion-input *ngIf="this.codeinput" placeholder = "Enter Code">
+  
+                  </ion-input>
+                  <ion-input *ngIf="this.phonenumberinput" placeholder = "Phone Number">
+  
+                    </ion-input>    
+          </div>
+        </ion-card-content>
+    
+      </ion-card>
 </ion-content>
+<ion-footer class="footer">
+    <ion-row style="margin: auto !important;">
+      <ion-col size='6' style="margin: auto !important;" >
+      <ion-button class="ion-btn"(click)="buyNow()" >Buy Now</ion-button>
+    </ion-col>
+
+    <ion-col size = '6' style="margin: auto !important;">
+      <ion-button class="ion-btn" (click)="addToCart()">Add to cart</ion-button>
+    </ion-col>
+    </ion-row>
+  
+  </ion-footer>

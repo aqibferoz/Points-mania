@@ -8,8 +8,9 @@ const routes: Routes = [
   { path: 'signin', loadChildren: './signin/signin.module#SigninPageModule' },
   { path: 'games', loadChildren: './games/games.module#GamesPageModule' },
   { path: 'product/:id', loadChildren: './product/product.module#ProductPageModule' },
-  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },  { path: 'playcards', loadChildren: './playcards/playcards.module#PlaycardsPageModule' },
-  { path: 'game-description', loadChildren: './game-description/game-description.module#GameDescriptionPageModule' },
+  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
+  { path: 'playcards', loadChildren: './playcards/playcards.module#PlaycardsPageModule' },
+  { path: 'game-description/:id', loadChildren: './game-description/game-description.module#GameDescriptionPageModule' },
 
 
 ];
