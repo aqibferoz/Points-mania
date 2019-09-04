@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="games"></ion-back-button>
+        </ion-buttons>
     <ion-title>playcards</ion-title>
     <ion-icon (click)="gridView()" slot='end' name="grid" class="grid"></ion-icon>
   </ion-toolbar>
@@ -9,7 +12,7 @@
 
 <ion-content>
 <ion-grid *ngIf="view">
-  <ion-row *ngFor="let item of playcards" class="cards">
+  <ion-row *ngFor="let item of playcards" class="cards" >
     <ion-col size="4">
 <img [src]="item.image" style="    height: 110px;">
     </ion-col>
