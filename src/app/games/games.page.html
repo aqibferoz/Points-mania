@@ -28,7 +28,7 @@
 
 <ion-grid>
   <ion-row>
-    <ion-col size = 3 *ngFor="let item of games">
+    <ion-col size = 3 *ngFor="let item of games" (click)="openGame(item.id)">
       <ion-avatar class="backimage2">
       <ion-img  [src]="item.image"></ion-img>
     </ion-avatar>

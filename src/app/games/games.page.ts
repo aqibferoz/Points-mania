@@ -60,4 +60,7 @@ console.log(this.games);
     console.log(id);
     this.router.navigate(['/game-description/'+id]);
   }
+  openGame(id){
+    this.router.navigate(['/game-description/'+id]);
+  }
 }
