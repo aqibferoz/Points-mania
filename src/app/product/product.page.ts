@@ -54,7 +54,7 @@ console.log(this.prd);
     localStorage.setItem('productCart', JSON.stringify(this.api.order.cart));
     console.log(this.api.order.cart);
     this.quantity=1;
-    this.router.navigate(['cart']);
+    this.router.navigate(['/cart']);
   }
 
 }
