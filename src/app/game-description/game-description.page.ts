@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-game-description',
@@ -17,11 +18,20 @@ playeridinput=false;
 phonenumberinput=false;
 usernameinput=false;
 
+email;
+userName;
+phoneNumber;
+code;
+playerId;
+password;
+dummyArray;
+selectedPackage;
   constructor(private route:ActivatedRoute,private api:ApiService) {
     this.id=this.route.snapshot.paramMap.get('id');
     this.api.getSingleGame(this.id).subscribe(res=>{
       console.log(res);
       this.prd=res;
+      this.dummyArray=res;
       if(this.prd.inputs.includes('email')){
         this.emailinput=true;
         console.log("email");
@@ -51,5 +61,19 @@ usernameinput=false;
 
   ngOnInit() {
   }
+  selectPackage(item){
+    
+console.log(item);
+this.prd.packages.map(ele=>{
+  if(ele.id==item.id){
+    return ele['selected']=true
+  }else{
+    return ele['selected']=false
+  }
+})
+console.log(this.prd);
+this.selectedPackage=item;
+console.log(this.selectedPackage);
 
+  }
 }
