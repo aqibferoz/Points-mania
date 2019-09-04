@@ -1,11 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>playcards</ion-title>
+    <ion-icon (click)="gridView()" slot='end' name="grid" class="grid"></ion-icon>
   </ion-toolbar>
+  
+ 
 </ion-header>
 
 <ion-content>
-<ion-grid>
+<ion-grid *ngIf="view">
   <ion-row *ngFor="let item of playcards" class="cards">
     <ion-col size="4">
 <img [src]="item.image" style="    height: 110px;">
@@ -28,7 +31,7 @@
   
 </ion-grid>
 
-        <ion-row no-padding>
+        <ion-row no-padding *ngIf="!view">
        
                 <ion-col size = '6' *ngFor="let item of playcards">
                     <ion-card (click) = "product()" style="margin:2px">

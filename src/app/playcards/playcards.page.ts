@@ -8,6 +8,7 @@ import {map, first} from 'rxjs/operators'
 })
 export class PlaycardsPage implements OnInit {
 playcards;
+view=true;
   constructor(private api:ApiService) { }
 
   ngOnInit() {
@@ -19,6 +20,14 @@ playcards;
     this.playcards=res;
     console.log(this.playcards);
     })
+  }
+  gridView(){
+    if(this.view==true){
+      this.view=false;
+    }else{
+      this.view=true;
+    }
+
   }
 
 }
