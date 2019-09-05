@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
 import {map, first} from 'rxjs/operators'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-playcards',
   templateUrl: './playcards.page.html',
@@ -9,7 +10,7 @@ import {map, first} from 'rxjs/operators'
 export class PlaycardsPage implements OnInit {
 playcards;
 view=true;
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit() {
     this.api.getPlayCards().pipe(map(list=>list.map(item=>{
@@ -30,4 +31,7 @@ view=true;
 
   }
 
+  viewPlayCard(item){
+    this.router.navigate(['/game-description/'+item.id]);
+  }
 }
