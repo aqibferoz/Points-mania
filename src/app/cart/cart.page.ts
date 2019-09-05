@@ -9,8 +9,16 @@ import { isNgTemplate } from '@angular/compiler';
 })
 export class CartPage implements OnInit {
 totalAmount=0;
+totalGame=0;
   constructor(private api:ApiService) {
-    this.total();
+    if(this.api.order.cart.length>0){
+      this.total();
+    }
+    else if(this.api.gameOrder.cart.length>0){
+this.gameTotal();
+console.log("object");
+    }
+    
    }
 
   ngOnInit() {
@@ -23,12 +31,27 @@ this.api.order.cart.forEach(elem=>{
 })
 this.totalAmount=all;
   }
+  gameTotal(){
+    let all=0;
+this.api.gameOrder.cart.forEach(elem=>{
+ all= elem.price+all;
+ console.log(all);
+})
+this.totalGame=all;
+  }
   delete(indx){
     console.log(indx);
     let index = this.api.order.cart.findIndex(element => element.id === indx.id);
     this.api.order.cart.splice(index, 1);
     // console.log(this.package);
     this.total();
+    }
+    deleteGame(indx){
+      console.log(indx);
+      let index = this.api.gameOrder.cart.findIndex(element => element.id === indx.id);
+      this.api.gameOrder.cart.splice(index, 1);
+      // console.log(this.package);
+      this.gameTotal();
     }
 
 }

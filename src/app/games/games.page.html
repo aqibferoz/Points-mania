@@ -3,7 +3,9 @@
   <ion-toolbar>
 <ion-title>Categories</ion-title>
 <ion-icon (click)="cart()" class="hicon" slot = 'end' ios="ios-cart" md="md-cart"></ion-icon>
-<ion-badge color="primary" class="badge">{{api.order.cart.length}}</ion-badge>
+<ion-badge *ngIf="api.order.cart.length>0" color="primary" class="badge">{{api.order.cart.length}}</ion-badge>
+<ion-badge *ngIf="api.gameOrder.cart.length>0" color="primary" class="badge">{{api.gameOrder.cart.length}}</ion-badge>
+<ion-badge *ngIf="api.gameOrder.cart.length==0 && api.order.cart.length==0 " color="primary" class="badge">0</ion-badge>
 
      
   </ion-toolbar>
