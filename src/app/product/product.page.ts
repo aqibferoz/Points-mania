@@ -8,53 +8,69 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./product.page.scss'],
 })
 export class ProductPage implements OnInit {
-quantity:number=1;
-prdId;
-prd;
-  constructor(private api:ApiService,private router:Router,private route:ActivatedRoute) { 
+  quantity: number = 1;
+  prdId;
+  prd;
+  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) {
 
-this.prdId=this.route.snapshot.paramMap.get('id');
-console.log(this.prdId);
-this.api.getSingleProduct(this.prdId).subscribe(res=>{
-this.prd=res;
-console.log(this.prd);
-})
+    this.prdId = this.route.snapshot.paramMap.get('id');
+    console.log(this.prdId);
+    this.api.getSingleProduct(this.prdId).subscribe(res => {
+      this.prd = res;
+      console.log(this.prd);
+    })
   }
 
   ngOnInit() {
   }
-  remove(){
-    if(this.quantity>0){
-      this.quantity=this.quantity-1;
+  remove() {
+    if (this.quantity > 0) {
+      this.quantity = this.quantity - 1;
     }
-   
+
+
+  }
+  add() {
+    this.quantity = this.quantity + 1;
+  }
+  addToCart() {
+    if (this.api.gameOrder.cart.length == 0) {
+
+
+      let data = {
+        product: this.prd,
+        quantity: this.quantity,
+        generalTotal: this.prd.price * this.quantity
+      }
+      this.api.order.cart.push(data);
+      localStorage.setItem('productCart', JSON.stringify(this.api.order.cart));
+      console.log(this.api.order.cart);
+      this.quantity = 1;
+    }
+     else {
+      alert("you have different products in cart , to buy this you must clear your cart or complete current cart order!")
+
+    }
+  }
+  buyNow() {
+    if(this.api.gameOrder.cart.length==0){
+
     
-  }
-  add(){
-    this.quantity=this.quantity+1;
-  }
-  addToCart(){
-    let data={
-      product:this.prd,
-      quantity:this.quantity,
-      generalTotal:this.prd.price*this.quantity
+    let data = {
+      product: this.prd,
+      quantity: this.quantity,
+      generalTotal: this.prd.price * this.quantity
     }
     this.api.order.cart.push(data);
     localStorage.setItem('productCart', JSON.stringify(this.api.order.cart));
     console.log(this.api.order.cart);
-    this.quantity=1;
-  }
-  buyNow(){
-    let data={
-      product:this.prd,
-      quantity:this.quantity,
-      generalTotal:this.prd.price*this.quantity
-    }
-    this.api.order.cart.push(data);
-    localStorage.setItem('productCart', JSON.stringify(this.api.order.cart));
-    console.log(this.api.order.cart);
-    this.quantity=1;
+    this.quantity = 1;
     this.router.navigate(['/cart']);
+  }
+  else{
+    alert("you have different products in cart , to buy this you must clear your cart or complete current cart order!")
+
+  }
   }
 
 }
