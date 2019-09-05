@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
   { path: 'playcards', loadChildren: './playcards/playcards.module#PlaycardsPageModule' },
   { path: 'game-description/:id', loadChildren: './game-description/game-description.module#GameDescriptionPageModule' },
+  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
 
 
 ];

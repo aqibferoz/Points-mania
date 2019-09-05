@@ -1,5 +1,7 @@
 {
   "name": "points-mania",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
