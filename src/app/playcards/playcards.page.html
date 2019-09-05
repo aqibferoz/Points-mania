@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="games"></ion-back-button>
+        </ion-buttons>
+    <ion-title>playcards</ion-title>
+    <ion-icon (click)="gridView()" slot='end' name="grid" class="grid"></ion-icon>
+  </ion-toolbar>
+  
+ 
+</ion-header>
+
+<ion-content>
+<ion-grid *ngIf="view">
+  <ion-row *ngFor="let item of playcards" class="cards" >
+    <ion-col size="4">
+<img [src]="item.image" style="    height: 110px;">
+    </ion-col>
+    <ion-col size="8">
+      <div>
+        <p class="title">
+          {{item.name}}
+        </p>
+
+      </div>
+      <div>
+        <p class="des" >
+     {{item.description}}
+        </p>
+        
+      </div>
+    </ion-col>
+  </ion-row>
+  
+</ion-grid>
+
+        <ion-row no-padding *ngIf="!view">
+       
+                <ion-col size = '6' *ngFor="let item of playcards">
+                    <ion-card (click) = "product()" style="margin:2px">
+                      
+                        <img [src]="item.image" style="height: 100px" />
+                        <ion-card-header style="padding: 5px">
+                            <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+                            <ion-card-title style="font-size: 17px;    margin-top: 5px; font-weight: bolder">{{item.name}}</ion-card-title>
+                          </ion-card-header>
+                        <ion-card-content style="padding: 10px;height: 114px;">
+                            <ion-item lines="none" no-padding style="height: 75px !important"> {{item.description}}</ion-item>
+                   
+                
+                          
+                        </ion-card-content>
+                        <ion-card-subtitle>
+                            <!-- <ion-label class="price">{{item.price}}</ion-label> -->
+                           </ion-card-subtitle>
+                       
+                      </ion-card>
+                    </ion-col>
+              
+                </ion-row>
+</ion-content>

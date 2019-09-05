@@ -2,7 +2,8 @@
     
   <ion-toolbar>
 <ion-title>Categories</ion-title>
-<ion-icon (click)="cart()" class="icon" slot = 'end' ios="ios-cart" md="md-cart"></ion-icon>
+<ion-icon (click)="cart()" class="hicon" slot = 'end' ios="ios-cart" md="md-cart"></ion-icon>
+<ion-badge color="primary" class="badge">{{api.order.cart.length}}</ion-badge>
 
      
   </ion-toolbar>
@@ -27,64 +28,23 @@
 
 <ion-grid>
   <ion-row>
-    <ion-col size = 3>
+    <ion-col size = 3 *ngFor="let item of games" (click)="openGame(item.id)">
       <ion-avatar class="backimage2">
-      <ion-img  src="../assets/folder/1.png"></ion-img>
+      <ion-img  [src]="item.image"></ion-img>
     </ion-avatar>
-      <div class="lab">San andreas</div>
+      <div class="lab">{{item.name}}</div>
     </ion-col>
-
-    <ion-col size = 3>
+    <ion-col size = 3 routerLink="/playcards">
         <ion-avatar class="backimage2">
-      <ion-img  src="../assets/folder/2.jpg"></ion-img>
+        <ion-img  src="../assets/folder/play.png"></ion-img>
       </ion-avatar>
-      <div class="lab">Narnia & Pubg</div>
-    </ion-col>
+        <div class="lab">PlayCards</div>
+      </ion-col>
 
-    <ion-col size = 3>
-        <ion-avatar class="backimage2">
-      <ion-img src="../assets/folder/3.jpg"></ion-img>
-      </ion-avatar>
-      <div class="lab">Delta force</div>
-    </ion-col>
 
-    <ion-col size = 3>
-        <ion-avatar class="backimage2">
-      <ion-img src="../assets/folder/4.jpg"></ion-img>
-      </ion-avatar> 
-      <div class="lab">Age of Empires</div>
-    </ion-col>
   </ion-row>
 
-  <ion-row>
-    <ion-col size = 3>
-      <ion-avatar class="backimage2">
-      <ion-img  src="../assets/folder/1.png"></ion-img>
-    </ion-avatar>
-      <div class="lab">Narnia</div>
-    </ion-col>
 
-    <ion-col size = 3>
-        <ion-avatar class="backimage2">
-      <ion-img  src="../assets/folder/2.jpg"></ion-img>
-      </ion-avatar>
-      <div class="lab">Narnia & Pubg</div>
-    </ion-col>
-
-    <ion-col size = 3>
-        <ion-avatar class="backimage2">
-      <ion-img src="../assets/folder/3.jpg"></ion-img>
-      </ion-avatar>
-      <div class="lab">Narnia</div>
-    </ion-col>
-
-    <ion-col size = 3>
-        <ion-avatar class="backimage2">
-      <ion-img src="../assets/folder/4.jpg"></ion-img>
-      </ion-avatar> 
-      <div class="lab">Narnia</div>
-    </ion-col>
-  </ion-row>
 </ion-grid>
 
 
@@ -93,30 +53,49 @@
 
             <!-- <div *ngSwitchCase="'products'"> -->
             <ion-row no-padding>
-              <ion-col size = '6'>
-                <ion-card (click) = "product()">
-                    <img src="../../assets/folder/a.jpg" />
+              <ion-col size = '6' *ngFor="let item of products">
+                <ion-card (click) = "product(item.id)" style="margin:2px">
+                 
+                      <img [src]="item.image" style="height: 100px" />
+       
                   
-                    <ion-card-content>
-                      Founded in 1829 on an e Wisconsin Territory in 1836.
+                    <ion-card-header style="padding: 5px">
+                        <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+                        <ion-card-title style="font-size: 17px;   margin-top: 5px; font-weight: bolder">{{item.name}}</ion-card-title>
+                      </ion-card-header>
+                    <ion-card-content style="padding: 10px;height: 85px;">
+                      <ion-item lines="none" no-padding style="height: 75px !important"> {{item.description}}</ion-item>
+                        
+               
+            
                       
                     </ion-card-content>
-                    <ion-label class="price">990$</ion-label>
+                    <ion-card-subtitle>
+                        <ion-label class="price">{{item.price}}</ion-label> </ion-card-subtitle>
+                   
                   </ion-card>
                 </ion-col>
-
-                <ion-col size = '6'>
-                    <ion-card>
-                        <img src="../../assets/folder/a.jpg" />
-                        <ion-card-header>
-                          <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
-                          <ion-card-title>Madison, WI</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Founded inl of the Wisconsin Territory in 1836.
+                <ion-col size = '6' *ngFor="let item of playcards">
+                    <ion-card (click) = "playCards(item.id)" style="margin:2px">
+                      
+                        <img [src]="item.image" style="height: 100px" />
+                        <ion-card-header style="padding: 5px">
+                            <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+                            <ion-card-title style="font-size: 17px;    margin-top: 5px; font-weight: bolder">{{item.name}}</ion-card-title>
+                          </ion-card-header>
+                        <ion-card-content style="padding: 10px;height: 114px;">
+                            <ion-item lines="none" no-padding style="height: 75px !important"> {{item.description}}</ion-item>
+                   
+                
+                          
                         </ion-card-content>
+                        <ion-card-subtitle>
+                            <!-- <ion-label class="price">{{item.price}}</ion-label> -->
+                           </ion-card-subtitle>
+                       
                       </ion-card>
                     </ion-col>
+              
                 </ion-row>
 
                 

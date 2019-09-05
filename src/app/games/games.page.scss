@@ -2,11 +2,17 @@
     height: 40px !important;
 }
 
-.icon{
-    position: absolute !important;
-    right: 8px !important;
-    width: 20px !important;
-    height: 20px !important;
+.badge{
+    position: absolute;
+    top: 7px;
+    right: 4px;
+    border-radius: 50px;
+    background: orange;
+}
+.hicon{
+    padding: 15px;
+    font-size: 25px;
+    margin-right: 5px;
 }
 .footer{
     position: fixed !important;

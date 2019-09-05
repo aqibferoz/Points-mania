@@ -1,0 +1,46 @@
+ion-card{
+    width: 100% !important;
+    margin: auto !important;
+}
+.img-style{
+    // width: 95% !important;
+    margin: auto !important;
+
+}
+.title{
+    padding: 0 0 0 13px;
+    font-size: 20px;
+    font-weight: 20px;
+}
+.inputs{
+    border: 1px solid;
+    border-radius: 10px;
+    margin-bottom: 5px !important;
+}
+
+
+
+ion-input{
+    padding: 0 0 0 10px !important;
+    color: black !important;
+}
+.footer{
+    position: fixed !important;
+    bottom: 0px !important;
+}
+.ion-btn{
+    width: 170px !important;
+}
+.hicon{
+    
+        padding: 15px;
+        font-size: 25px;
+   
+}
+.badge{
+    position: absolute;
+    top: 7px;
+    right: 4px;
+    border-radius: 50px;
+    background: orange;
+}

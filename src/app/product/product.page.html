@@ -1,22 +1,29 @@
 <ion-header>
   <ion-toolbar>
+  
+          <ion-buttons slot="start">
+              <ion-back-button defaultHref="games"></ion-back-button>
+            </ion-buttons>
     <ion-title>product</ion-title>
+    <ion-icon routerLink="/cart" class="hicon" slot = 'end' ios="ios-cart" md="md-cart"></ion-icon>
+    <ion-badge color="primary" class="badge">{{api.order.cart.length}}</ion-badge>
   </ion-toolbar>
 </ion-header>
 
-<ion-content no-padding>
-    <ion-card>
+<ion-content no-padding >
+    <ion-card style="height: 100%" *ngIf="this.prd" style="margin-bottom: 70px !important ; box-shadow: none;">
         <!-- <ion-card-header> -->
-            <img class="img-style" src="../../assets/folder/a.jpg" />
-          <ion-card-subtitle class="price">$109</ion-card-subtitle>
-          <ion-card-title class="title">Pubg mobile 40UC for android and ios</ion-card-title>
+            <img class="img-style" [src]="prd.image" />
+          <ion-card-subtitle class="price">{{prd.price}}</ion-card-subtitle>
+          <ion-card-title class="title">{{prd.name}}</ion-card-title>
         <!-- </ion-card-header> -->
       
         <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+  {{prd.description}}
+
         </ion-card-content>
-        
+        <ion-card-subtitle class="color"> Color: <span style="color: black;font-size: 15px">{{prd.color}}</span> </ion-card-subtitle>
+<!--         
         <ion-card-content>
           <div class="div-style">
             <ion-input placeholder = "Username">
@@ -26,27 +33,29 @@
   
             </ion-input>
           </div>
-        </ion-card-content>
-        <ion-row>
-          <ion-col style="text-align: center;    border: 1px solid skyblue;
-          border-radius: 10px; margin-bottom: 65px;">
-            <ion-icon (click)="remove()" name="remove-circle-outline" style="font-size:30px;color: #f78c1e;"></ion-icon>
-             <span style="font-size:30px;color:  #1ef7f7;    margin: 30px;" > {{quantity}} </span>
-             <ion-icon (click)="add()" style="font-size:30px ;color: #f78c1e;" name="add-circle-outline"></ion-icon>
-          </ion-col>
-        </ion-row>
+        </ion-card-content> -->
+        <ion-row > 
+            <ion-col style="text-align: center;    border: 1px solid skyblue;
+            border-radius: 10px; margin: 0px 30px 0px 30px;">
+              <ion-icon (click)="remove()" name="remove-circle-outline" style="font-size:30px;color: #f78c1e;"></ion-icon>
+               <span style="font-size:30px;color:  #1ef7f7;    margin: 30px;" > {{quantity}} </span>
+               <ion-icon (click)="add()" style="font-size:30px ;color: #f78c1e;" name="add-circle-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
       </ion-card>
-      <ion-footer class="footer">
-        <ion-row style="margin: auto !important;">
-          <ion-col size='6' style="margin: auto !important;" >
-          <ion-button class="ion-btn"(click)="buyNow()" >Buy Now</ion-button>
-        </ion-col>
-
-        <ion-col size = '6' style="margin: auto !important;">
-          <ion-button class="ion-btn" (click)="addToCart()">Add to cart</ion-button>
-        </ion-col>
-        </ion-row>
-      
-      </ion-footer>
+    
+   
 </ion-content>
+<ion-footer class="footer">
+    <ion-row style="margin: auto !important;">
+      <ion-col size='6' style="margin: auto !important;" >
+      <ion-button class="ion-btn"(click)="buyNow()" >Buy Now</ion-button>
+    </ion-col>
+
+    <ion-col size = '6' style="margin: auto !important;">
+      <ion-button class="ion-btn" (click)="addToCart()">Add to cart</ion-button>
+    </ion-col>
+    </ion-row>
+  
+  </ion-footer>
 
