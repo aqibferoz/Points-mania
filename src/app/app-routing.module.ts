@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'product/:id', loadChildren: './product/product.module#ProductPageModule' },
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
   { path: 'playcards', loadChildren: './playcards/playcards.module#PlaycardsPageModule' },
-  { path: 'game-description/:id', loadChildren: './game-description/game-description.module#GameDescriptionPageModule' },
+  { path: 'game-description/:id', loadChildren: './game-description/game-description.module#GameDescriptionPageModule' },  { path: 'stripe', loadChildren: './stripe/stripe.module#StripePageModule' },
+
 
 
 ];

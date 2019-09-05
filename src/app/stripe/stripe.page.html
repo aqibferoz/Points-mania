@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>stripe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg">
+<ion-grid>
+  <ion-row>
+    <ion-col size="12">
+      <ion-item lines="none">
+          <ion-label class="title">
+              <ion-icon name="card"></ion-icon>       Cardholders Name 
+            </ion-label>
+      </ion-item>
+      <ion-item lines="none" class="inputs">
+        <ion-input  placeholder="Name">
+
+        </ion-input>
+      </ion-item>
+  
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-item lines="none">
+          <ion-label class="title">
+              <ion-icon name="card"></ion-icon>        Card Number
+                   </ion-label>
+      </ion-item>
+      <ion-item lines="none" class="inputs">
+          <ion-input  placeholder="0123 4567 7891 1025">
+  
+          </ion-input>
+        </ion-item>
+       
+    </ion-col>
+  </ion-row>
+  <ion-row style="margin-top: 10px">
+      <ion-item lines="none">
+          <ion-label class="title">
+              <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>      Experation Date
+                   </ion-label>
+      </ion-item>
+
+      <ion-item lines="none" class="inputs">
+
+          <ion-datetime [(ngModel)]="date" (ion-change)="change($event)" name="date" displayFormat="MM/YYYY" min="2019-01-01" max="4099-12-01" value="2025-12-15T13:47:20.789" ></ion-datetime>
+        </ion-item>
+  </ion-row>
+  <ion-row>
+    <ion-item lines="none">
+      <ion-label class="title">
+        CVV/CVC  <ion-icon ios="ios-card" md="md-card"></ion-icon>
+      </ion-label>
+    </ion-item>
+    
+  </ion-row>
+  <ion-row style="margin-top: 5px;margin-left: 5px;
+  ">
+    <ion-col size="3" class="inputs">
+      <ion-input  maxlength="4"  placeholder="123" ></ion-input>
+
+    </ion-col>
+    <ion-col size="9" style="margin: auto !important">
+      <div > <span class="title">3 or 4 digit code </span> <span style="font-size: 27px;
+        border: 1px solid;
+        border-radius: 22px;
+    "
+    (click)="openCvc()"
+    >?</span>  </div>
+    </ion-col>
+  
+    
+  </ion-row>
+  <ion-row *ngIf="this.open">
+    <ion-col size="12">
+      <img src="../../assets/images/img.png">
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+</ion-content>
+<ion-footer>
+    <ion-button class="footerButton" expand="full">Pay Now</ion-button>
+</ion-footer>
