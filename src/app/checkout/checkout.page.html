@@ -1,0 +1,203 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="cart"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-row>
+    <ion-col size="12" text-center>
+      <ion-label style="font-size: 20px;padding:15px;font-family: ;font-weight: 900"> Billing Details</ion-label>
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col size="12">
+          <ion-item lines="none">
+              <ion-label class="title">
+                  <ion-icon name="card"></ion-icon> First Name<b style="color:red">*</b>
+                </ion-label>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+            <ion-input  placeholder="First Name">
+    
+            </ion-input>
+          </ion-item>
+      
+    
+        </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col size="12">
+          <ion-item lines="none">
+              <ion-label class="title">
+                  <ion-icon name="card"></ion-icon> Last Name<b style="color:red">*</b>
+                </ion-label>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+            <ion-input  placeholder="Last Name">
+    
+            </ion-input>
+          </ion-item>
+      
+    
+        </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col size="12">
+          <ion-item lines="none">
+              <ion-label class="title">
+                  <ion-icon name="card"></ion-icon>  Address<b style="color:red">*</b>
+                </ion-label>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+            <ion-textarea  placeholder="Address">
+    
+            </ion-textarea>
+          </ion-item>
+      
+    
+        </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col size="12">
+          <ion-item lines="none">
+              <ion-label class="title">
+                  <ion-icon name="card"></ion-icon>  Post Code
+                </ion-label>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+            <ion-input  placeholder="Post code">
+    
+            </ion-input>
+          </ion-item>
+      
+    
+        </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col size="12">
+          <ion-item lines="none">
+              <ion-label class="title">
+                  <ion-icon name="card"></ion-icon> City<b style="color:red">*</b>
+                </ion-label>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+            <ion-input  placeholder="City">
+    
+            </ion-input>
+          </ion-item>
+      
+    
+        </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col size="12">
+          <ion-item lines="none">
+              <ion-label class="title">
+                  <ion-icon name="card"></ion-icon>  Country<b style="color:red">*</b>
+                </ion-label>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+            <ion-input  placeholder="Country">
+    
+            </ion-input>
+          </ion-item>
+      
+    
+        </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col size="12">
+          <ion-item lines="none">
+              <ion-label class="title">
+                  <ion-icon name="card"></ion-icon> Email<b style="color:red">*</b>
+                </ion-label>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+            <ion-input  placeholder="Email">
+    
+            </ion-input>
+          </ion-item>
+      
+    
+        </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col size="12">
+          <ion-item lines="none">
+              <ion-label class="title">
+                  <ion-icon name="card"></ion-icon>  Phone Number<b style="color:red">*</b>
+                </ion-label>
+          </ion-item>
+          <ion-item lines="none" class="inputs">
+            <ion-input  placeholder="Phone Number">
+    
+            </ion-input>
+          </ion-item>
+      
+    
+        </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-row class="cart" >
+  <ion-col size="12" text-center> 
+    <ion-label> Your Cart</ion-label>
+  </ion-col>
+    <ion-col size="12">
+      <ion-row *ngFor="let item of api.order.cart">
+        <ion-col size="3">
+          <img [src]="item.product.image">
+        </ion-col>
+        <ion-col size="6">
+          <p style="margin: 0px !important">{{item.product.name}}</p>
+          <div style="margin-top: 5px"> <span style="color: grey"> {{item.product.color}}</span></div>
+          <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 15);font-size: 12px">Quantity:<b style="color: black">{{item.quantity}}</b></span></div>
+          <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 10);font-size: 12px">Price:<b style="color: black">{{item.product.price}}</b></span></div>
+       
+        </ion-col>
+        <ion-col size="3" style="margin: auto" >
+<div>
+  {{item.generalTotal}}
+</div>
+        </ion-col>
+        
+      </ion-row>
+      
+    </ion-col>
+  </ion-row>
+  <ion-row class="cart" style="margin-bottom: 70px">
+   <ion-col size="6" text-left class="lab">
+     <ion-label>Total Amount</ion-label>
+   </ion-col>
+   <ion-col size="6" text-right class="lab">
+      <ion-label>{{totalAmount}}</ion-label>
+    </ion-col>
+    <ion-col size="6" text-left class="lab">
+        <ion-label>Delivery Amount</ion-label>
+      </ion-col>
+      <ion-col size="6" text-right class="lab">
+         <ion-label>0</ion-label>
+       </ion-col>
+       <ion-col size="6" text-left >
+          <ion-label>SubTotal</ion-label>
+        </ion-col>
+        <ion-col size="6" text-right >
+           <ion-label style="font-weight: bolder;font-size:25px">-/{{totalAmount}}</ion-label>
+         </ion-col>
+  </ion-row>
+
+
+
+
+
+    <ion-footer class="footer">
+        <ion-button class="footerButton" expand="full">Place Order</ion-button>
+      
+      </ion-footer>
+</ion-content>

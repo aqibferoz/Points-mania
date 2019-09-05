@@ -1,0 +1,26 @@
+.cart{
+    
+border:1px solid orange;
+border-radius: 15px !important;    margin: 10px;
+}
+.inputs{
+    border-bottom: 1px solid orange;
+    text-align: center;
+    color: orangered;
+}
+.lab{
+    border-bottom: 1px solid orange;
+    padding: 10px
+}
+.footerButton{
+    padding: 0px;
+    margin: 0px;
+    height: 63px;
+  
+    --background: orange;
+   
+}
+.footer{
+    position: fixed !important;
+    bottom: 0px !important;
+}
