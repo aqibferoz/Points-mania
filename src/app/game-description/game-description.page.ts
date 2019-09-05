@@ -102,7 +102,7 @@ addToCart(){
     price:this.prd.price,
     quantity:this.prd.quantity,
     type:this.prd.type,
-    id:this.id
+    id:this.api.gameOrder.cart.length+1
     
   }
    
@@ -111,6 +111,7 @@ addToCart(){
     console.log(this.api.gameOrder.cart);
     this.prd.price=null;
     this.prd.quantity=null;
+    this.prd.type=null;
 
     this.prd.packages.map(ele=>{
    
@@ -148,7 +149,7 @@ buyNow(){
       price:this.prd.price,
       quantity:this.prd.quantity,
       type:this.prd.type,
-      id:this.id
+      id:this.api.gameOrder.cart.length+1
       
     }
 
