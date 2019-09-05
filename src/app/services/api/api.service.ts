@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { firestore } from 'firebase';
+import{HttpClient}from '@angular/common/http'
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +21,7 @@ gameOrder={
   totalAmount:0,
   customerEmail:''
 }
-  constructor(private afs:AngularFirestore) { }
+  constructor(private afs:AngularFirestore,private http:HttpClient) { }
   createUser(id, data){
     return this.afs.doc('users/' + id).set(data);
   }
@@ -59,5 +60,8 @@ gameOrder={
   }
   placeOrder(data){
     return this.afs.collection('orders').add(data);
+  }
+  convertCurrency(manual){
+    return this.http.get('https://free.currconv.com/api/v7/convert?q=USD_'+manual+'&compact=ultra&apiKey=036b851e8f787316c9df');
   }
 }

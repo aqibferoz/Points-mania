@@ -18,6 +18,10 @@ products;
     this.getGames();
     this.getPlayCard();
     this.getProducts();
+  let b= "PKR"
+    this.api.convertCurrency(b).subscribe(res=>{
+      console.log(res);
+    })
   }
   product(id){
 this.router.navigate(['product/'+id])

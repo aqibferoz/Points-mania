@@ -15,6 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import{FormsModule} from '@angular/forms';
+import{HttpClientModule}from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import{FormsModule} from '@angular/forms';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    HttpClientModule,
 
    
 

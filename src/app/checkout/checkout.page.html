@@ -47,7 +47,7 @@
     
         </ion-col>
   </ion-row>
-  <ion-row>
+  <ion-row *ngIf="this.api.order.cart.length>0">
       <ion-col size="12">
           <ion-item lines="none">
               <ion-label class="title">
@@ -63,7 +63,7 @@
     
         </ion-col>
   </ion-row>
-  <ion-row>
+  <ion-row *ngIf="this.api.order.cart.length>0">
       <ion-col size="12">
           <ion-item lines="none">
               <ion-label class="title">
@@ -79,7 +79,7 @@
     
         </ion-col>
   </ion-row>
-  <ion-row>
+  <ion-row *ngIf="this.api.order.cart.length>0">
       <ion-col size="12">
           <ion-item lines="none">
               <ion-label class="title">
@@ -95,7 +95,7 @@
     
         </ion-col>
   </ion-row>
-  <ion-row>
+  <ion-row *ngIf="this.api.order.cart.length>0">
       <ion-col size="12">
           <ion-item lines="none">
               <ion-label class="title">
@@ -111,7 +111,7 @@
     
         </ion-col>
   </ion-row>
-  <ion-row>
+  <ion-row >
       <ion-col size="12">
           <ion-item lines="none">
               <ion-label class="title">
@@ -145,7 +145,7 @@
   </ion-row>
 </ion-grid>
 
-<ion-row class="cart" >
+<ion-row class="cart" *ngIf="this.api.order.cart.length>0" >
   <ion-col size="12" text-center> 
     <ion-label> Your Cart</ion-label>
   </ion-col>
@@ -171,7 +171,7 @@
       
     </ion-col>
   </ion-row>
-  <ion-row class="cart" style="margin-bottom: 70px">
+  <ion-row class="cart" style="margin-bottom: 70px" *ngIf="this.api.order.cart.length>0">
    <ion-col size="6" text-left class="lab">
      <ion-label>Total Amount</ion-label>
    </ion-col>
@@ -184,7 +184,7 @@
       <ion-col size="6" text-right class="lab">
          <ion-label>0</ion-label>
        </ion-col>
-       <ion-col size="6" text-left >
+       <ion-col size="6" text-left style="padding: 10px">
           <ion-label>SubTotal</ion-label>
         </ion-col>
         <ion-col size="6" text-right >
@@ -193,6 +193,54 @@
   </ion-row>
 
 
+
+  <ion-row class="cart" *ngIf="this.api.gameOrder.cart.length>0" >
+      <ion-col size="12" text-center> 
+        <ion-label> Your Cart</ion-label>
+      </ion-col>
+        <ion-col size="12">
+          <ion-row *ngFor="let item of api.gameOrder.cart" style="border-bottom:1px solid chocolate">
+            <ion-col size="3">
+              <img [src]="item.image">
+            </ion-col>
+            <ion-col size="6">
+              <p style="margin: 0px !important">{{item.name}}</p>
+              <div style="margin-top: 5px"> <span style="color: grey"> {{item.type}}s  </span>  <img *ngIf="item.type=='diamond'" style="height: 20px" src="../../assets/icon/diamond.svg">
+                <img *ngIf="item.type=='coin'"  style="height: 20px" src="../../assets/icon/coins.svg"></div>
+              <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 15);font-size: 12px">Quantity:<b style="color: black">{{item.quantity}}</b></span></div>
+              <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 10);font-size: 12px">Price:<b style="color: black">{{item.price}}</b></span></div>
+           
+            </ion-col>
+            <ion-col size="3" style="margin: auto" >
+    <div>
+      {{item.price}}
+    </div>
+            </ion-col>
+            
+          </ion-row>
+          
+        </ion-col>
+      </ion-row>
+      <ion-row class="cart" style="margin-bottom: 70px" *ngIf="this.api.gameOrder.cart.length>0">
+       <ion-col size="6" text-left class="lab">
+         <ion-label>Total Amount</ion-label>
+       </ion-col>
+       <ion-col size="6" text-right class="lab">
+          <ion-label>{{totalGame}}</ion-label>
+        </ion-col>
+        <ion-col size="6" text-left class="lab">
+            <ion-label>Delivery Amount</ion-label>
+          </ion-col>
+          <ion-col size="6" text-right class="lab">
+             <ion-label>0</ion-label>
+           </ion-col>
+           <ion-col size="6" text-left >
+              <ion-label>SubTotal</ion-label>
+            </ion-col>
+            <ion-col size="6" text-right >
+               <ion-label style="font-weight: bolder;font-size:25px">-/{{totalGame}}</ion-label>
+             </ion-col>
+      </ion-row>
 
 
 
