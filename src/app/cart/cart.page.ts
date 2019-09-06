@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CartPage implements OnInit {
 totalAmount=0;
 totalGame=0;
+c_symbol;
   constructor(private api:ApiService, private router: Router) {
     if(this.api.order.cart.length>0){
       this.total();
@@ -19,6 +20,7 @@ totalGame=0;
 this.gameTotal();
 console.log("object");
     }
+    this.c_symbol=this.api.user_currency;
     
    }
 

@@ -9,6 +9,7 @@ import { ApiService } from '../services/api/api.service';
 export class CheckoutPage implements OnInit {
 totalAmount;
 totalGame;
+c_symbol;
   constructor(private api:ApiService) { }
 
   ngOnInit() {
@@ -19,6 +20,7 @@ totalGame;
 this.gameTotal();
 console.log("object");
     }
+    this.c_symbol=this.api.user_currency;
   }
 totalProduct(){
 

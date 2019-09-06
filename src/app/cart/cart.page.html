@@ -26,7 +26,7 @@
         <ion-col size="7">
           <p style="margin: 0px !important">{{item.product.name}}</p>
           <div style="margin-top: 5px"> <span style="color: grey"> {{item.product.color}}</span></div>
-          <div style="margin-top: 8px"> <span style="color: rgb(253, 125, 51);font-size: 20px"> {{item.product.price}}</span></div>
+          <div style="margin-top: 8px"> <span style="color: rgb(253, 125, 51);font-size: 20px"> {{item.product.price}} <b style="font-size: 15px"> {{c_symbol}}</b></span></div>
        
         </ion-col>
         <ion-col size="2" style="margin:auto;    background: #f78c1e;
@@ -40,7 +40,7 @@
         <ion-item lines="none" no-padding style="    font-family: monospace;
       
         padding: 0px 0px 0px 22px;">
-{{item.product.price}} x {{item.quantity}} = {{item.product.price * item.quantity}}
+{{item.product.price}} x {{item.quantity}} = {{item.product.price * item.quantity}} {{c_symbol}}
         </ion-item>
       </ion-row>
     </ion-col>
@@ -55,7 +55,7 @@
         <ion-col size="7">
           <p style="margin: 0px !important">{{item.name}}</p>
           <div style="margin-top: 5px"> <span style="color: grey"> {{item.quantity}} {{item.type}}</span></div>
-          <div style="margin-top: 8px"> <span style="color: rgb(253, 125, 51);font-size: 20px"> {{item.price}}</span></div>
+          <div style="margin-top: 8px"> <span style="color: rgb(253, 125, 51);font-size: 20px"> {{item.price}}{{c_symbol}}</span></div>
        
         </ion-col>
         <ion-col size="2" style="margin:auto;    background: #f78c1e;
@@ -82,10 +82,10 @@
 <ion-footer class="footer">
     <ion-row style="margin: auto !important;     background: #f78c1e;">
       <ion-col size="6" style="margin: auto !important;" >
-<ion-label style="font-size: 30px;color:white;padding: 5px" *ngIf="this.api.order.cart.length>0"> {{totalAmount}}</ion-label>
-<ion-label style="font-size: 30px;color:white;padding: 5px" *ngIf="this.api.gameOrder.cart.length>0"> {{totalGame}}</ion-label>
+<ion-label style="font-size: 25px;color:white;padding: 5px" *ngIf="this.api.order.cart.length>0"> {{totalAmount}}<b style="font-size: 15px">{{c_symbol}}</b></ion-label>
+<ion-label style="font-size: 25px;color:white;padding: 5px" *ngIf="this.api.gameOrder.cart.length>0"> {{totalGame}}<b style="font-size: 15px">{{c_symbol}}</b></ion-label>
 
-<ion-label style="font-size: 30px;color:white;padding: 5px" *ngIf="this.api.gameOrder.cart.length==0 && this.api.order.cart.length==0 "> 0</ion-label>
+<ion-label style="font-size: 30px;color:white;padding: 5px" *ngIf="this.api.gameOrder.cart.length==0 && this.api.order.cart.length==0 "> 0<b style="font-size: 15px">{{c_symbol}}</b></ion-label>
     </ion-col>
     <ion-col size="6" style="margin: auto !important;    text-align: right;
     padding: 10px;" (click) = "checkout()" >
