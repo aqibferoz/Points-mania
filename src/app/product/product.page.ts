@@ -54,7 +54,7 @@ export class ProductPage implements OnInit {
     }
      else {
       alert("you have different products in cart , to buy this you must clear your cart or complete current cart order!")
-
+this.router.navigate(['/cart']);
     }
   }
   buyNow() {
@@ -74,7 +74,7 @@ export class ProductPage implements OnInit {
   }
   else{
     alert("you have different products in cart , to buy this you must clear your cart or complete current cart order!")
-
+    this.router.navigate(['/cart']);
   }
   }
 

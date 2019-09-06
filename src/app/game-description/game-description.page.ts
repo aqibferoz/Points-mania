@@ -128,7 +128,9 @@ addToCart(){
       alert("please select packgae ")
     }
   }else{
+    
     alert("you have different products in cart , to buy this you must clear your cart or complete current cart order!")
+    this.router.navigate(['/cart']);
   }
 
   
@@ -178,7 +180,7 @@ buyNow(){
   }
   }else{
     alert("you have different products in cart , to buy this you must clear your cart or complete current cart order!")
-
+    this.router.navigate(['/cart']);
   }
 }
 }

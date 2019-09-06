@@ -17,7 +17,7 @@ c_symbol;
 
   ngOnInit() {
     
-    if(this.api.currency_value==null){
+    if(this.api.user_currency ==null && this.api.user_country==null && this.api.currency_value ==null){
 
    
     this.api.getUser(localStorage.getItem('userId')).pipe(first()).toPromise().then((res:any)=>{
