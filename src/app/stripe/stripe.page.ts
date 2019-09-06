@@ -38,7 +38,7 @@ convertIntoDollar(amount){
 
   // let a = 'USD_'+b;
   console.log(b[0]);
-  this.dollar=b[0]
+
   })
 }
 }
