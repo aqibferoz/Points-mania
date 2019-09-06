@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-checkout',
@@ -10,9 +11,22 @@ export class CheckoutPage implements OnInit {
 totalAmount;
 totalGame;
 c_symbol;
+fname;
+lname;
+address;
+post_code;
+city;
+country;
+phone_number;
+email;
   constructor(private api:ApiService) { }
 
   ngOnInit() {
+    this.api.getUser(localStorage.getItem('userId')).pipe(first()).toPromise().then((resp:any)=>{
+      this.email=resp.email;
+      this.country=resp.userCountry;
+
+    })
     if(this.api.order.cart.length>0){
       this.total();
     }
@@ -39,5 +53,39 @@ total(){
    console.log(all);
   })
   this.totalGame=all;
+    }
+    placeOrder(){
+      if(this.api.order.cart.length>0){
+        if(
+          this.email!=null&& this.email!='' &&
+          this.fname!=null&& this.fname!=''&&
+          this.lname!=null && this.lname!=''&&
+          this.address!=null && this.address!=''&&
+          this.post_code!=null && 
+          this.city!=null && this.city!=''&&
+          this.country!=null && this.country!=''&&
+          this.phone_number!=null 
+        ){
+
+
+        }
+        else{
+          alert("please FIll all Fields ");
+        }
+      }
+      else if(this.api.gameOrder.cart.length>0){
+        if(
+          this.email!=null&& this.email!='' &&
+          this.fname!=null&& this.fname!=''&&
+          this.lname!=null && this.lname!=''&&
+          this.phone_number!=null 
+        ){
+
+
+        }
+        else{
+          alert("please FIll all Fields ");
+        }
+      }
     }
 }

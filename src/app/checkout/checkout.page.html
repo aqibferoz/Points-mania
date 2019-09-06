@@ -23,7 +23,7 @@
                 </ion-label>
           </ion-item>
           <ion-item lines="none" class="inputs">
-            <ion-input  placeholder="First Name">
+            <ion-input  placeholder="First Name" [(ngModel)]="fname" name="fname">
     
             </ion-input>
           </ion-item>
@@ -39,7 +39,7 @@
                 </ion-label>
           </ion-item>
           <ion-item lines="none" class="inputs">
-            <ion-input  placeholder="Last Name">
+            <ion-input  placeholder="Last Name" [(ngModel)]="lname" name="lname">
     
             </ion-input>
           </ion-item>
@@ -55,7 +55,7 @@
                 </ion-label>
           </ion-item>
           <ion-item lines="none" class="inputs">
-            <ion-textarea  placeholder="Address">
+            <ion-textarea  placeholder="Address" [(ngModel)]="address" name="address">
     
             </ion-textarea>
           </ion-item>
@@ -71,7 +71,7 @@
                 </ion-label>
           </ion-item>
           <ion-item lines="none" class="inputs">
-            <ion-input  placeholder="Post code">
+            <ion-input  placeholder="Post code" type="number" [(ngModel)]="post_code"  name="post_code">
     
             </ion-input>
           </ion-item>
@@ -87,7 +87,7 @@
                 </ion-label>
           </ion-item>
           <ion-item lines="none" class="inputs">
-            <ion-input  placeholder="City">
+            <ion-input  placeholder="City" [(ngModel)]="city" name="city">
     
             </ion-input>
           </ion-item>
@@ -103,7 +103,7 @@
                 </ion-label>
           </ion-item>
           <ion-item lines="none" class="inputs">
-            <ion-input  placeholder="Country">
+            <ion-input  placeholder="Country" [(ngModel)]="country" name="country">
     
             </ion-input>
           </ion-item>
@@ -119,7 +119,7 @@
                 </ion-label>
           </ion-item>
           <ion-item lines="none" class="inputs">
-            <ion-input  placeholder="Email">
+            <ion-input  placeholder="Email" [(ngModel)]="email" name="email" >
     
             </ion-input>
           </ion-item>
@@ -135,7 +135,7 @@
                 </ion-label>
           </ion-item>
           <ion-item lines="none" class="inputs">
-            <ion-input  placeholder="Phone Number">
+            <ion-input  placeholder="Phone Number" min="0" [(ngModel)]="phone_number" name="phone_number" type="number">
     
             </ion-input>
           </ion-item>
@@ -208,12 +208,12 @@
               <div style="margin-top: 5px"> <span style="color: grey"> {{item.type}}s  </span>  <img *ngIf="item.type=='diamond'" style="height: 20px" src="../../assets/icon/diamond.svg">
                 <img *ngIf="item.type=='coin'"  style="height: 20px" src="../../assets/icon/coins.svg"></div>
               <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 15);font-size: 12px">Quantity:<b style="color: black">{{item.quantity}}</b></span></div>
-              <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 10);font-size: 12px">Price:<b style="color: black">{{item.price}}</b></span></div>
+              <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 10);font-size: 12px">Price:<b style="color: black">{{item.price}}</b> <b style="font-size: 10px">{{c_symbol}}</b></span></div>
            
             </ion-col>
             <ion-col size="3" style="margin: auto" >
     <div>
-      {{item.price}}
+      {{item.price}} <b style="font-size: 10px">{{c_symbol}}</b>
     </div>
             </ion-col>
             
@@ -222,30 +222,30 @@
         </ion-col>
       </ion-row>
       <ion-row class="cart" style="margin-bottom: 70px" *ngIf="this.api.gameOrder.cart.length>0">
-       <ion-col size="6" text-left class="lab">
+       <!-- <ion-col size="6" text-left class="lab">
          <ion-label>Total Amount</ion-label>
-       </ion-col>
-       <ion-col size="6" text-right class="lab">
-          <ion-label>{{totalGame}}</ion-label>
+       </ion-col> -->
+       <!-- <ion-col size="6" text-right class="lab">
+          <ion-label>{{totalGame}}  <b style="font-size: 10px">{{c_symbol}}</b></ion-label>
         </ion-col>
         <ion-col size="6" text-left class="lab">
             <ion-label>Delivery Amount</ion-label>
           </ion-col>
           <ion-col size="6" text-right class="lab">
              <ion-label>0</ion-label>
-           </ion-col>
-           <ion-col size="6" text-left >
+           </ion-col> -->
+           <ion-col size="6" text-left style="margin: auto" >
               <ion-label>SubTotal</ion-label>
             </ion-col>
             <ion-col size="6" text-right >
-               <ion-label style="font-weight: bolder;font-size:25px">-/{{totalGame}}</ion-label>
+               <ion-label style="font-weight: bolder;font-size:25px">-/{{totalGame}} <b style="font-size: 15px">{{c_symbol}}</b></ion-label>
              </ion-col>
       </ion-row>
 
 
 
     <ion-footer class="footer">
-        <ion-button class="footerButton" expand="full">Place Order</ion-button>
+        <ion-button class="footerButton" expand="full" (click)="placeOrder()">Place Order</ion-button>
       
       </ion-footer>
 </ion-content>
