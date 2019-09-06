@@ -12,17 +12,49 @@ export class GamesPage implements OnInit {
 games;
 playcards;
 products;
+c_symbol;
   constructor(private router :Router,private api:ApiService) { }
 
   ngOnInit() {
+    
+    if(this.api.currency_value==null){
+
+   
+    this.api.getUser(localStorage.getItem('userId')).pipe(first()).toPromise().then((res:any)=>{
+      this.api.user_country=res.userCountry;
+      this.api.user_currency=res.userCurrency;
+      console.log(this.api.user_country);
+      console.log(this.api.user_currency);
+      this.api.convertCurrency(this.api.user_currency).subscribe(res=>{
+        console.log(res);
+        this.api.currency_value=res
+let b=Object.values(res);
+
+// let a = 'USD_'+b;
+console.log(b[0]);
+this.api.currency_value=b[0]
+// console.log(res.a);
+        
+        this.getGames();
+        this.getPlayCard();
+        this.getProducts();
+        this.c_symbol=this.api.user_currency;
+      })
+    });
+  }else{
+    this.c_symbol=this.api.user_currency;
     this.getGames();
     this.getPlayCard();
     this.getProducts();
-  let b= "PKR"
-    this.api.convertCurrency(b).subscribe(res=>{
-      console.log(res);
-    })
   }
+   
+  
+ 
+  }
+
+
+
+
   product(id){
 this.router.navigate(['product/'+id])
   } 
@@ -37,6 +69,12 @@ this.api.getGames().pipe(map(list=>list.map(item=>{
   return{id,...data}
 }))).subscribe(res=>{
 this.games=res;
+this.games.forEach(element => {
+  element.packages.map(item=>{
+
+    return item['amount']=Math.round( item.amount *this.api.currency_value)
+  })
+});
 console.log(this.games);
 })
   }
@@ -47,6 +85,9 @@ console.log(this.games);
       return{id,...data}
     }))).subscribe(res=>{
     this.products=res;
+    this.products.map(item=>{
+      return item['price']=Math.round( item.price *this.api.currency_value)
+    })
     console.log(this.products);
     })
   }

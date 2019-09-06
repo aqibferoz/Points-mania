@@ -16,7 +16,7 @@
     <ion-card style="height: 100%" *ngIf="this.prd" style="margin-bottom: 70px !important ; box-shadow: none;">
         <!-- <ion-card-header> -->
             <img class="img-style" [src]="prd.image" />
-          <ion-card-subtitle class="price">{{prd.price}}</ion-card-subtitle>
+          <ion-card-subtitle class="price">{{prd.price}} <b style="color:orange;font-size:15px " >{{c_symbol}}</b></ion-card-subtitle>
           <ion-card-title class="title">{{prd.name}}</ion-card-title>
         <!-- </ion-card-header> -->
       

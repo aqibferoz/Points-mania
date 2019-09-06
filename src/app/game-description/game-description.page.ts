@@ -26,11 +26,16 @@ playerId='';
 password='';
 dummyArray;
 selectedPackage;
+c_symbol;
   constructor(private route:ActivatedRoute,private api:ApiService,private router:Router) {
     this.id=this.route.snapshot.paramMap.get('id');
     this.api.getSingleGame(this.id).subscribe(res=>{
       console.log(res);
       this.prd=res;
+      this.c_symbol=this.api.user_currency;
+      this.prd.packages.map(item=>{
+        return item['amount']=Math.round( item.amount *this.api.currency_value)
+      })
       this.dummyArray=res;
       if(this.prd.inputs.includes('email')){
         this.emailinput=true;

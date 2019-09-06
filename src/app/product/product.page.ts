@@ -11,17 +11,22 @@ export class ProductPage implements OnInit {
   quantity: number = 1;
   prdId;
   prd;
+  c_symbol;
   constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) {
 
     this.prdId = this.route.snapshot.paramMap.get('id');
     console.log(this.prdId);
     this.api.getSingleProduct(this.prdId).subscribe(res => {
       this.prd = res;
+      this.prd.price= Math.round( this.prd.price *this.api.currency_value)
+   
+     
       console.log(this.prd);
     })
   }
 
   ngOnInit() {
+    this.c_symbol=this.api.user_currency;
   }
   remove() {
     if (this.quantity > 0) {

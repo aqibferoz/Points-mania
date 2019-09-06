@@ -27,6 +27,13 @@
             
           </ion-input>
         </ion-item>
+        <ion-item>
+          <ion-label>Country</ion-label>
+          <ion-select placeholder="Select One" [(ngModel)]="country"  >
+            <ion-select-option (click)=change(item)  *ngFor="let item of countries">{{item.country}}</ion-select-option>
+   
+          </ion-select>
+        </ion-item>
         <small *ngIf="available==true" style="color:rgb(168, 30, 30) !important"> User Name Already taken !</small>
         <small *ngIf="password!=rePassword" style="color:red !important"> Password not Matched</small>
         <h6>Note: Others users will be able to see your username</h6>

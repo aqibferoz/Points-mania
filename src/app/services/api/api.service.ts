@@ -21,6 +21,9 @@ gameOrder={
   totalAmount:0,
   customerEmail:''
 }
+user_country;
+user_currency;
+currency_value;
   constructor(private afs:AngularFirestore,private http:HttpClient) { }
   createUser(id, data){
     return this.afs.doc('users/' + id).set(data);
