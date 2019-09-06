@@ -12,6 +12,18 @@ order={
   customerUserName:'',
   totalAmount:0,
   customerEmail:'',
+  type:'',
+  firstName:'',
+  lastName:'',
+  address:'',
+  phoneNumber:0,
+  currency:'',
+  country:'',
+  city:'',
+  postCode:0,
+  charges:0,
+  chargesName:''
+
 
 }
 gameOrder={
@@ -19,7 +31,15 @@ gameOrder={
   customerId:'',
   customerUserName:'',
   totalAmount:0,
-  customerEmail:''
+  customerEmail:'',
+  firstName:'',
+  lastName:'',
+  phoneNumber:'',
+  currency:'',
+  charges:0,
+  chargesName:''
+
+
 }
 user_country;
 user_currency;
@@ -67,4 +87,12 @@ currency_value;
   convertCurrency(manual){
     return this.http.get('https://free.currconv.com/api/v7/convert?q=USD_'+manual+'&compact=ultra&apiKey=036b851e8f787316c9df');
   }
+  createOrder(data){
+    return this.afs.collection('orders').add(data);
+  }
+  getOrders(userid){
+
+    return this.afs.collection('orders',ref=>ref.where('customerId','==',userid)).snapshotChanges();
+  }
 }
+

@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'game-description/:id', loadChildren: './game-description/game-description.module#GameDescriptionPageModule' },
   { path: 'stripe', loadChildren: './stripe/stripe.module#StripePageModule' },
   { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
+  { path: 'choose-payment', loadChildren: './choose-payment/choose-payment.module#ChoosePaymentPageModule' },
 
 
 
