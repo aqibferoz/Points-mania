@@ -10,6 +10,16 @@
 <ion-content class="bg">
 <ion-grid>
   <ion-row>
+    <ion-col size="12" style="margin: auto" text-center>
+<div class="top" *ngIf="api.gameOrder.cart.length>0" >
+  Bill: <b style="color: white">{{api.gameOrder.totalAmount}}</b> {{api.gameOrder.currency}}
+</div>
+<div *ngIf="api.order.cart.length>0" class="top" >
+    Bill: <b style="color: white">{{api.order.totalAmount}}</b> {{api.order.currency}}
+  </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
       <ion-col size="12">
         <ion-item lines="none">
             <ion-label class="title">

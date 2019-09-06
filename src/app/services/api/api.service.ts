@@ -87,6 +87,9 @@ currency_value;
   convertCurrency(manual){
     return this.http.get('https://free.currconv.com/api/v7/convert?q=USD_'+manual+'&compact=ultra&apiKey=036b851e8f787316c9df');
   }
+  convertIntoDollar(manual){
+    return this.http.get('https://free.currconv.com/api/v7/convert?q='+manual+'_USD&compact=ultra&apiKey=036b851e8f787316c9df');
+  }
   createOrder(data){
     return this.afs.collection('orders').add(data);
   }
