@@ -14,7 +14,7 @@
 <ion-label style="font-size: 20px;font-weight:900 ;font-family:monospace">Choose Payment Method</ion-label>
     </ion-col>
   </ion-row>
-  <ion-row class="row">
+  <ion-row class="row" (click)="bkash()">
     <ion-col size="3" padding>
         <img src="../../assets/images/Bkash.png">
     </ion-col>
@@ -22,7 +22,7 @@
         Pay with <b style="color: #D7537C">b</b>Kash
     </ion-col>
   </ion-row>
-  <ion-row class="row">
+  <ion-row class="row" (click)="card()">
       <ion-col size="3" padding>
           <img src="../../assets/images/debit-card.svg">
       </ion-col>

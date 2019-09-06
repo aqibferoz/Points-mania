@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -19,12 +20,14 @@ city;
 country;
 phone_number;
 email;
-  constructor(private api:ApiService) { }
+userName;
+  constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit() {
     this.api.getUser(localStorage.getItem('userId')).pipe(first()).toPromise().then((resp:any)=>{
       this.email=resp.email;
       this.country=resp.userCountry;
+      this.userName=resp.username;
 
     })
     if(this.api.order.cart.length>0){
@@ -66,8 +69,21 @@ total(){
           this.country!=null && this.country!=''&&
           this.phone_number!=null 
         ){
+this.api.order.address=this.address;
+this.api.order.city=this.city;
+this.api.order.currency=this.c_symbol;
+this.api.order.customerEmail=this.email;
+this.api.order.customerId=localStorage.getItem('userId');
+this.api.order.firstName=this.fname;
+this.api.order.lastName=this.lname;
+this.api.order.country=this.country;
+this.api.order.phoneNumber=this.phone_number;
+this.api.order.postCode=this.post_code;
+this.api.order.type='product',
+this.api.order.totalAmount=this.totalAmount;
+this.api.order.customerUserName=this.userName;
 
-
+this.router.navigate(['choose-payment']);
         }
         else{
           alert("please FIll all Fields ");
@@ -81,7 +97,15 @@ total(){
           this.phone_number!=null 
         ){
 
-
+this.api.gameOrder.totalAmount=this.totalGame;
+this.api.gameOrder.phoneNumber=this.phone_number;
+this.api.gameOrder.lastName=this.lname;
+this.api.gameOrder.firstName=this.fname;
+this.api.gameOrder.customerId=localStorage.getItem('userId');
+this.api.gameOrder.customerEmail=this.email;
+this.api.gameOrder.currency=this.c_symbol;
+this.api.gameOrder.customerUserName=this.userName;
+this.router.navigate(['choose-payment']);
         }
         else{
           alert("please FIll all Fields ");
