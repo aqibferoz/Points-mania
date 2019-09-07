@@ -1,3 +1,45 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<ion-app  class="back" >
+    <ion-split-pane class="back" >
+    <ion-menu type="overlay">
+
+      <ion-content class="back">
+
+        <div style="text-align: center !important;margin-top: 35px;">
+          <h2 style="color: black!important;">Menu</h2>
+        </div>
+
+        <!--
+          <div class="list"  style="margin-top: 50px !important" (click)="send()">
+            <h3> Profile</h3>
+          </div>
+          <div class="list" >
+              <h3> Downloads</h3>
+            </div>
+            <div class="list" >
+                <h3> Settings</h3>
+              </div> -->
+
+
+        <ion-list no-padding lines="none" >
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages" lines="none" class="background">
+            <ion-item class="menu" text-center  [routerDirection]="'root'" [routerLink]="[p.url]" lines="none">
+             
+              <!-- <ion-icon [name]="p.icon" item-left style="color:#AA6C3B"></ion-icon> -->
+              <!-- <ion-icon *ngIf="p.icon=='sync'" [name]="p.icon" item-left style="color:skyblue"></ion-icon> -->
+              <ion-label lines="none" >
+                  <ion-icon  style="color:white" slot="start" [name]="p.icon"></ion-icon>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      
+      </ion-content>
+    </ion-menu>
+   
+  
+    <ion-router-outlet main ></ion-router-outlet>
+  
+</ion-split-pane>
+
 </ion-app>

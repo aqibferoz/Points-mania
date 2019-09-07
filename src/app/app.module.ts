@@ -15,7 +15,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import{FormsModule} from '@angular/forms';
-import{HttpClientModule}from '@angular/common/http';
+import{HttpClientModule,HttpClient}from '@angular/common/http';
+import{Stripe} from '@ionic-native/stripe/ngx'
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,8 @@ import{HttpClientModule}from '@angular/common/http';
   ],
   providers: [
     StatusBar,
+    Stripe,
+    HttpClient,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

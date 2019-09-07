@@ -27,7 +27,7 @@
               </ion-label>
         </ion-item>
         <ion-item lines="none" class="inputs">
-          <ion-input  placeholder="Name">
+          <ion-input  placeholder="Name" [(ngModel)]="cardHolderName" name="cardHolderName">
 
           </ion-input>
         </ion-item>
@@ -43,7 +43,7 @@
                    </ion-label>
       </ion-item>
       <ion-item lines="none" class="inputs">
-          <ion-input  placeholder="0123 4567 7891 1025">
+          <ion-input  maxlength="16" placeholder="0123 4567 7891 1025" [(ngModel)]="cardNumber" name="cardNumber">
   
           </ion-input>
         </ion-item>
@@ -73,7 +73,7 @@
   <ion-row style="margin-top: 5px;margin-left: 5px;
   ">
     <ion-col size="3" class="inputs">
-      <ion-input  maxlength="4"  placeholder="123" ></ion-input>
+      <ion-input  maxlength="4"  placeholder="123" [(ngModel)]="cvc" name="cvc" ></ion-input>
 
     </ion-col>
     <ion-col size="9" style="margin: auto !important">
@@ -96,5 +96,5 @@
 </ion-grid>
 </ion-content>
 <ion-footer>
-    <ion-button class="footerButton" expand="full">Pay Now</ion-button>
+    <ion-button class="footerButton" expand="full" (click)="payWithStripe()">Pay Now</ion-button>
 </ion-footer>

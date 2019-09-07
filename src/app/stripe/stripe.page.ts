@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
+import{Stripe} from '@ionic-native/stripe/ngx';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-stripe',
@@ -7,10 +9,17 @@ import { ApiService } from '../services/api/api.service';
   styleUrls: ['./stripe.page.scss'],
 })
 export class StripePage implements OnInit {
-date="2025-12-15T13:47:20.789";
+date="2025-12";
 open=false;
 dollar;
-  constructor(private api:ApiService) { }
+paymentAmount:string ;
+currency:string;
+stripe_key='pk_test_cJmghymBoEPLI11Kvd1lxk5q';
+cardDetails:any={};
+cardHolderName;
+cardNumber;
+cvc;
+  constructor(private api:ApiService,private stripe:Stripe,private http: HttpClient) { }
 
   ngOnInit() {
     if(this.api.order.cart.length>0){
@@ -41,4 +50,39 @@ convertIntoDollar(amount){
 
   })
 }
+
+payWithStripe() {
+  var dateObj = new Date(this.date);
+  var month = dateObj.getUTCMonth() + 1; //months from 1-12
+
+  var year = dateObj.getUTCFullYear();
+  this.stripe.setPublishableKey(this.stripe_key);
+
+  this.cardDetails = {
+    number: this.cardNumber,
+    expMonth: month,
+    expYear: year,
+    cvc: this.cvc
+  }
+  console.log(this.cardDetails);
+
+  this.stripe.createCardToken(this.cardDetails)
+    .then(token => {
+      console.log(token);
+      this.makePayment(token.id);
+    })
+    .catch(error => console.error(error));
+}
+makePayment(token) {
+  this.http
+  .post(
+  'http://localhost:5000/points-809fd/us-central1/payWithStripe', {
+  amount: 100,
+  currency: "usd",
+ description:'testing'
+  })
+  .subscribe(data => {
+  console.log(data);
+  });
+  }
 }

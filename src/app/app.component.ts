@@ -12,6 +12,34 @@ import { first } from 'rxjs/operators';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  public appPages = [
+    {
+      title: 'Home',
+      url: '/games',
+      icon:'home'
+     
+    },
+    {
+      title: 'Orders',
+      url: '/orders',
+      icon:'list-box'
+      
+    },
+    {
+      title: 'Contact Us',
+      url: '/contact-us',
+      icon:'mail'
+      
+    },
+    {
+      title: 'Logout',
+      url: '/create-challenge',
+      icon:'log-out'
+     
+    }
+  
+
+  ];
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

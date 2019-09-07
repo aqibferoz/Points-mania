@@ -1,9 +1,9 @@
 ion-toolbar{
-    --background: #e0a61e !important;
+  --background: linear-gradient(to  left,#E67D22, rgb(255, 100, 52)) !important;
     color: white !important;
   }
   ion-content{
-    --background: #e0a61e !important;
+    --background: linear-gradient(to  left,#E67D22, rgb(255, 100, 52)) !important;
   }
   h6{
       font-size: 12px !important;
@@ -21,4 +21,9 @@ ion-toolbar{
       margin-left: auto !important;
       margin-right: auto !important;
       text-align: -webkit-center !important ;
+  }
+  .title{
+    font-size: 35px;
+    padding: 30px;
+    color: white;
   }
