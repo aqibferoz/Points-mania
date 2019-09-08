@@ -97,5 +97,9 @@ currency_value;
 
     return this.afs.collection('orders',ref=>ref.where('customerId','==',userid)).snapshotChanges();
   }
+  submitQuery(data){
+    return this.afs.collection('queries').add(data);
+  }
+
 }
 

@@ -37,8 +37,8 @@
     </ion-col>
  <ion-col size="2"></ion-col>
     <ion-col size="5" text-right>
-      <ion-button expand="block" fill="outline" *ngIf="!item.selected" (click)="selectPackage(item)">{{item.amount}}{{c_symbol}}</ion-button>
-      <ion-button expand="block" fill="outline" style="background: orange;color:white;border-radius: 10px" *ngIf="item.selected" >{{item.amount}}{{c_symbol}}</ion-button>
+      <ion-button expand="block" fill="outline" *ngIf="!item.selected" (click)="selectPackage(item)">{{item.amount}} <b style="color: black;font-size: smaller"> {{c_symbol}}</b></ion-button>
+      <ion-button expand="block" fill="outline" style="background: orange;color:white;border-radius: 10px" *ngIf="item.selected" >{{item.amount}}<b style="color: black;font-size: smaller"> {{c_symbol}}</b></ion-button>
     </ion-col>
   </ion-row>
         </ion-card-content>

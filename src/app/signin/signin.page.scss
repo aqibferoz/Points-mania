@@ -1,9 +1,9 @@
 ion-toolbar{
-    --background: #e0a61e !important;
+  --background: linear-gradient(to  left,#E67D22, rgb(255, 100, 52)) !important;
     color: white !important;
   }
   ion-content{
-    --background: #e0a61e !important;
+    --background: linear-gradient(to  left,#E67D22, rgb(255, 100, 52)) !important;
   }
   h6{
       font-size: 12px !important;
@@ -12,10 +12,10 @@ ion-toolbar{
   }
   .signup{
       width: 100% !important;
-        --background: white !important;
+      --background: #2A5A70 !important;
       margin-left: auto !important;
       margin-right: auto !important;
-      color: black !important;
+      color: white !important;
   }
   .already{
       margin-left: auto !important;

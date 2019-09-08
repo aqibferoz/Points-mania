@@ -17,6 +17,7 @@ c_symbol;
 
   ngOnInit() {
     
+    console.log(this.api.currency_value);
     if(this.api.user_currency ==null && this.api.user_country==null && this.api.currency_value ==null){
 
    

@@ -29,7 +29,7 @@ export class ProductPage implements OnInit {
     this.c_symbol=this.api.user_currency;
   }
   remove() {
-    if (this.quantity > 0) {
+    if (this.quantity > 1) {
       this.quantity = this.quantity - 1;
     }
 
