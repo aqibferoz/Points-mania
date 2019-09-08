@@ -36,13 +36,36 @@
             </ion-input>
           </div>
         </ion-card-content> -->
-        <ion-row > 
+        <!-- <ion-row > 
             <ion-col style="text-align: center;    border: 1px solid skyblue;
             border-radius: 10px; margin: 0px 30px 0px 30px;">
-              <ion-icon (click)="remove()" name="remove-circle-outline" style="font-size:30px;color: #f78c1e;"></ion-icon>
+              <ion-icon (click)="remove()"ios="ios-remove" md="md-remove" style="font-size:30px;color: #f78c1e;"></ion-icon>
                <span style="font-size:30px;color:  #1ef7f7;    margin: 30px;" > {{quantity}} </span>
-               <ion-icon (click)="add()" style="font-size:30px ;color: #f78c1e;" name="add-circle-outline"></ion-icon>
+               <ion-icon (click)="add()" style="font-size:30px ;color: #f78c1e;" ios="ios-add" md="md-add"></ion-icon>
             </ion-col>
+          </ion-row> -->
+          <ion-row>
+              <ion-card-subtitle class="color"> Quantity: </ion-card-subtitle>
+          </ion-row>
+          <ion-row>
+            
+           <ion-col size="2"></ion-col>
+
+           <ion-col size="2" text-center style="border: 1px solid">
+              <ion-icon (click)="remove()"ios="ios-remove" md="md-remove" style="font-size:30px;color: black;"></ion-icon>
+           </ion-col>
+           <ion-col size="4" text-center style="border: 1px solid">
+              <span style="font-size:30px;color:  green;    margin: 30px;" > {{quantity}} </span>
+           </ion-col>
+           <ion-col size="2" text-center style="border: 1px solid">
+              <ion-icon (click)="add()" style="font-size:30px ;color: black;" ios="ios-add" md="md-add"></ion-icon>
+           </ion-col>
+
+           <ion-col size="2"></ion-col>
+               
+              
+               
+           
           </ion-row>
       </ion-card>
     

@@ -31,25 +31,42 @@ if(event.target.value=='other'){
 }
 }
 otherQuery(){
+  if(
+    this.subject!=null&& this.subject!=''&&
+  this.message !=null && this.message!=''
+  
 
-  this.helper.presentLoading('Submitting your request');
-  let data={
-    name:this.username,
-    email:this.email,
-    subject:this.subject,
-    message:this.message,
-    type:"other"
+  ){
+    this.helper.presentLoading('Submitting your request');
+    let data={
+      name:this.username,
+      email:this.email,
+      subject:this.subject,
+      message:this.message,
+      type:"other"
+    }
+    console.log(data);
+    this.api.submitQuery(data).then(res=>{
+      this.helper.dismissLoad();
+  this.helper.presentToast('Stay Calm ! Let us see what can we provide you against your request')
+    }).catch(err=>{
+      this.helper.dismissLoad();
+      this.helper.presentToast('Something Went wrong');
+    })
+  }else{
+    this.helper.presentToast
   }
-  console.log(data);
-  this.api.submitQuery(data).then(res=>{
-    this.helper.dismissLoad();
-this.helper.presentToast('Stay Calm ! Let us see what can we provide you against your request')
-  }).catch(err=>{
-    this.helper.dismissLoad();
-    this.helper.presentToast('Something Went wrong');
-  })
+
 }
 orderQuery(){
+  if(
+    this.subject!=null&& this.subject!=''&&
+  this.message !=null && this.message!=''&&
+  this.orderNo!=null&& this.orderNo!=''
+
+  ){
+
+  }
   let data={
     name:this.username,
     email:this.email,
@@ -62,6 +79,9 @@ orderQuery(){
   this.api.submitQuery(data).then(res=>{
     this.helper.dismissLoad();
 this.helper.presentToast('Stay Calm ! Let us see what can we provide you against your request')
+  }).catch(err=>{
+    this.helper.dismissLoad();
+    this.helper.presentToast('Something Went wrong');
   })
 }
 }
