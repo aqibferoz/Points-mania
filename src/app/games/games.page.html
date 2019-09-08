@@ -2,7 +2,7 @@
     
   <ion-toolbar>
       <ion-buttons slot="start">
-          <ion-menu-button style="color: black !important;"></ion-menu-button>
+          <ion-menu-button style="color: white !important;"></ion-menu-button>
         </ion-buttons>
 <ion-title> <ion-icon name="home"></ion-icon>Home</ion-title>
 <ion-icon (click)="cart()" class="hicon" slot = 'end' ios="ios-cart" md="md-cart"></ion-icon>
@@ -59,9 +59,13 @@
             <!-- <div *ngSwitchCase="'products'"> -->
             <ion-row no-padding>
               <ion-col size = '6' *ngFor="let item of products">
-                <ion-card (click) = "product(item.id)" style="margin:2px">
-                 
-                      <img [src]="item.image" style="height: 100px" />
+                <ion-card (click) = "product(item.id)" style="margin:2px;background: white;">
+                 <ion-row>
+                   <ion-col>
+                      <img [src]="item.image" style="height: 100px;background-size: cover" />
+                   </ion-col>
+                 </ion-row>
+                     
        
                   
                     <ion-card-header style="padding: 5px">
@@ -81,7 +85,7 @@
                   </ion-card>
                 </ion-col>
                 <ion-col size = '6' *ngFor="let item of playcards">
-                    <ion-card (click) = "playCards(item.id)" style="margin:2px">
+                    <ion-card (click) = "playCards(item.id)" style="margin:2px;background: white;">
                       
                         <img [src]="item.image" style="height: 100px" />
                         <ion-card-header style="padding: 5px">

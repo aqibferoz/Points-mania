@@ -36,3 +36,10 @@ margin: auto !important;
     width: 70px !important;
     height: 70px !important;
 }
+ion-toolbar{
+    --background: linear-gradient(to  bottom,#30C7DC, #051F90) !important;
+      color: white !important;
+    }
+    ion-content{
+      --background: linear-gradient(to  bottom,#30C7DC, #051F90) !important;
+    }
