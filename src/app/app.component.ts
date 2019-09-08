@@ -31,12 +31,7 @@ export class AppComponent {
       icon:'mail'
       
     },
-    {
-      title: 'Logout',
-      url: '/create-challenge',
-      icon:'log-out'
-     
-    }
+
   
 
   ];

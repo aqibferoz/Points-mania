@@ -58,8 +58,8 @@
       </ion-item>
 
       <ion-item lines="none" class="inputs">
-
-          <ion-datetime [(ngModel)]="date" (ion-change)="change($event)" name="date" displayFormat="MM/YYYY" min="2019-01-01" max="4099-12-01" value="2025-12-15T13:47:20.789" ></ion-datetime>
+<ion-input [(ngModel)]="date" (ion-change)="change($event)" name="date" type="month" min="2019-10" value="2020-05"></ion-input>
+          <!-- <ion-datetime [(ngModel)]="date" (ion-change)="change($event)" name="date" displayFormat="MM/YYYY" min="2019-01-01" max="4099-12-01" value="2025-12-15T13:47:20.789" ></ion-datetime> -->
         </ion-item>
   </ion-row>
   <ion-row>
