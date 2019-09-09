@@ -184,6 +184,7 @@ console.log(this.check);
   
 }
 buyNow(){
+  this.check=true;
   let d=[{
     name: this.emailinput,
     value:this.email
@@ -201,6 +202,10 @@ buyNow(){
      ,{
       name:this.usernameinput,
       value:this.userName
+     },
+     {
+       name:this.playeridinput,
+       value:this.playerId
      }
     
      
@@ -211,7 +216,7 @@ buyNow(){
         console.log("rola ha ");
         this.check==false;
       }else{
-    this.check==true;
+    
       }
     })
   if(this.api.order.cart.length==0){
