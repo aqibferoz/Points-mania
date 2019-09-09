@@ -83,12 +83,7 @@ this.games.forEach(element => {
   })
 });
 console.log(this.games);
-this.dummyGames.forEach(element => {
-  element.packages.map(item=>{
 
-    return item['amount']=Math.round( item.amount *this.api.currency_value)
-  })
-});
 })
   }
   getProducts(){
@@ -97,15 +92,16 @@ this.dummyGames.forEach(element => {
       let id =item.payload.doc.id;
       return{id,...data}
     }))).subscribe(res=>{
+      console.log(res);
     this.products=res;
     this.dummyProducts=res;
     this.products.map(item=>{
       return item['price']=Math.round( item.price *this.api.currency_value)
     })
     console.log(this.products);
-    this.dummyProducts.map(item=>{
-      return item['price']=Math.round( item.price *this.api.currency_value)
-    })
+    // this.dummyProducts.map(item=>{
+    //   return item['price']=Math.round( item.price *this.api.currency_value)
+    // })
     })
 
   }
