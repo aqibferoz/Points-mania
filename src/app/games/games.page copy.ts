@@ -149,8 +149,6 @@ this.dummyGames.forEach(element => {
     console.log(d);
     if(c.length==0 && b.length==0 && d.length==0){
       this.notFound=true;
-    }else{
-      this.notFound=false;
     }
   }else{
     this.notFound=false;
