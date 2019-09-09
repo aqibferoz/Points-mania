@@ -28,6 +28,12 @@ userName;
       this.email=resp.email;
       this.country=resp.userCountry;
       this.userName=resp.username;
+      this.city=resp.city;
+      this.address=resp.address;
+      this.post_code=resp.postCode;
+      this.phone_number=resp.phoneNumber;
+      this.fname=resp.firstName;
+      this.lname=resp.lastName;
 
     })
     if(this.api.order.cart.length>0){
@@ -82,8 +88,21 @@ this.api.order.postCode=this.post_code;
 this.api.order.type='product',
 this.api.order.totalAmount=this.totalAmount;
 this.api.order.customerUserName=this.userName;
+let data={
+  firstName:this.fname,
+  lastName:this.lname,
+  phoneNumber:this.phone_number,
+  city:this.city,
+  address:this.address,
+  postCode:this.post_code,
 
-this.router.navigate(['choose-payment']);
+}
+this.api.updateUser(localStorage.getItem('userId'),data).then(res=>{
+  console.log("user Updated");
+  this.router.navigate(['choose-payment']);
+})
+
+
         }
         else{
           alert("please FIll all Fields ");
@@ -105,7 +124,17 @@ this.api.gameOrder.customerId=localStorage.getItem('userId');
 this.api.gameOrder.customerEmail=this.email;
 this.api.gameOrder.currency=this.c_symbol;
 this.api.gameOrder.customerUserName=this.userName;
-this.router.navigate(['choose-payment']);
+let data={
+  firstName:this.fname,
+  lastName:this.lname,
+  phoneNumber:this.phone_number,
+
+
+}
+this.api.updateUser(localStorage.getItem('userId'),data).then(res=>{
+  console.log("user Updated");
+  this.router.navigate(['choose-payment']);
+})
         }
         else{
           alert("please FIll all Fields ");

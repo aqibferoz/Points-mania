@@ -20,6 +20,24 @@ card(){
 this.router.navigate(['/stripe']);
 }
 bkash(){
-this.router.navigate(['/bkash']);
+
+  if(this.api.order.cart.length>0){
+    this.api.createOrder(this.api.order).then(res=>{
+      console.log("order created");
+      let amount=this.api.order.totalAmount;
+      this.router.navigate(['/bkash/'+amount]);
+    })
+  }else{
+    if(this.api.gameOrder.cart.length>0){
+      this.api.createOrder(this.api.gameOrder).then(res=>{
+        console.log("order created");
+        let amount=this.api.gameOrder.totalAmount;
+        this.router.navigate(['/bkash/'+amount]);
+      })
+    }
+  }
+
+
+
 }
 }

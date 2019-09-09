@@ -6,6 +6,7 @@ import{HttpClient}from '@angular/common/http'
   providedIn: 'root'
 })
 export class ApiService {
+  date=Date.now();
 order={
   cart:[],
   customerId:'',
@@ -22,7 +23,10 @@ order={
   city:'',
   postCode:0,
   charges:0,
-  chargesName:''
+  chargesName:'',
+  createdDate:this.date,
+  payment:false,
+ delivered:false
 
 
 }
@@ -37,7 +41,10 @@ gameOrder={
   phoneNumber:'',
   currency:'',
   charges:0,
-  chargesName:''
+  chargesName:'',
+  createdDate:this.date,
+  payment:false,
+  delivered:false
 
 
 }
@@ -100,6 +107,8 @@ currency_value;
   submitQuery(data){
     return this.afs.collection('queries').add(data);
   }
-
+getCurrentOrder(userid){
+  return this.afs.collection('orders',ref=>ref.where('customerId','==',userid).orderBy('createdDate','desc')).snapshotChanges();
+}
 }
 
