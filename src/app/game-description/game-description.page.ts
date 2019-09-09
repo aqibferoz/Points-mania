@@ -28,7 +28,7 @@ password='';
 dummyArray;
 selectedPackage;
 c_symbol;
-check=false;
+check=true;
   constructor(private route:ActivatedRoute,private api:ApiService,private router:Router,
     private helper:HelperService) {
     this.id=this.route.snapshot.paramMap.get('id');
@@ -108,19 +108,24 @@ value:this.email
  ,{
   name:this.usernameinput,
   value:this.userName
+ },{
+   name:this.playeridinput,
+   value:this.playerId
  }
 
  
   
 ]
 d.forEach(item=>{
+  console.log(item);
   if((item.name==true && item.value==null )||(item.name==true && item.value=='') ||(item.name==true && item.value.length<3) ){
     console.log("rola ha ");
     this.check==false;
   }else{
-this.check==true;
+
   }
 })
+console.log("object");
   if(this.api.order.cart.length==0){
     if(this.prd.type!=null){
       if(this.check==true){
