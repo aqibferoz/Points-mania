@@ -91,6 +91,7 @@ console.log(this.prd);
   }
 
 addToCart(){
+  this.check=true;
 let d=[{
 name: this.emailinput,
 value:this.email
@@ -120,12 +121,14 @@ d.forEach(item=>{
   console.log(item);
   if((item.name==true && item.value==null )||(item.name==true && item.value=='') ||(item.name==true && item.value.length<3) ){
     console.log("rola ha ");
-    this.check==false;
+    this.check=false;
+    console.log(this.check);
   }else{
-
+    console.log(this.check);
   }
 })
 console.log("object");
+console.log(this.check);
   if(this.api.order.cart.length==0){
     if(this.prd.type!=null){
       if(this.check==true){
