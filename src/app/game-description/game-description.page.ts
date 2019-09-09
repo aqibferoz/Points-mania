@@ -216,7 +216,7 @@ buyNow(){
     d.forEach(item=>{
       if((item.name==true && item.value==null )||(item.name==true && item.value=='') ||(item.name==true && item.value.length<3) ){
         console.log("rola ha ");
-        this.check==false;
+        this.check=false;
       }else{
     
       }

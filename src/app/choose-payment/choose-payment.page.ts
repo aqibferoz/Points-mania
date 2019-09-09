@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../services/api/api.service';
 
 @Component({
   selector: 'app-choose-payment',
@@ -7,8 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./choose-payment.page.scss'],
 })
 export class ChoosePaymentPage implements OnInit {
-
-  constructor(private router:Router) { }
+c_symbol;
+  constructor(private router:Router,private api:ApiService) {
+    this.c_symbol=this.api.user_currency;
+    console.log(this.c_symbol);
+   }
 
   ngOnInit() {
   }
