@@ -29,6 +29,7 @@ dummyArray;
 selectedPackage;
 c_symbol;
 check=true;
+style;
   constructor(private route:ActivatedRoute,private api:ApiService,private router:Router,
     private helper:HelperService) {
     this.id=this.route.snapshot.paramMap.get('id');
@@ -167,7 +168,8 @@ console.log(this.check);
       }
       else{
 
-        this.helper.presentToast('Please Fill Required Inputs correctly ')
+        this.helper.presentToast('Please Fill Required Inputs correctly ');
+        this.style="1px solid red"
       }
 
 
@@ -262,6 +264,7 @@ this.router.navigate(['/cart']);
 }
 else{
   this.helper.presentToast('Please FIll Required Inputs correctly');
+  this.style="1px solid red"
 }
 
 }else{

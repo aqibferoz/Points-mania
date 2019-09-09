@@ -48,22 +48,22 @@
         <ion-card-content *ngIf="prd.inputs.length>0">
          
           <div class="div-style">
-            <ion-input class="inputs" *ngIf="this.usernameinput" name="userName" [(ngModel)]="userName" placeholder = "Enter Username">
+            <ion-input class="inputs" [ngStyle]="{'border': style}" *ngIf="this.usernameinput" name="userName" [(ngModel)]="userName" placeholder = "Enter Username">
   
             </ion-input>  
-            <ion-input class="inputs" *ngIf="this.playeridinput" [(ngModel)]="playerId" name="playerId" placeholder = "Enter Player ID">
+            <ion-input class="inputs" [ngStyle]="{'border': style}" *ngIf="this.playeridinput" [(ngModel)]="playerId" name="playerId" placeholder = "Enter Player ID">
   
             </ion-input>
-            <ion-input class="inputs" *ngIf="this.emailinput" [(ngModel)]="email" name=email placeholder = "Enter Email">
+            <ion-input class="inputs" [ngStyle]="{'border': style}" *ngIf="this.emailinput" [(ngModel)]="email" name=email placeholder = "Enter Email">
   
               </ion-input>  
-              <ion-input class="inputs" *ngIf="this.passwordinput" [(ngModel)]="password" name="password" placeholder = "Enter Password">
+              <ion-input class="inputs" [ngStyle]="{'border': style}" *ngIf="this.passwordinput" [(ngModel)]="password" name="password" placeholder = "Enter Password">
   
                 </ion-input>  
-                <ion-input class="inputs" *ngIf="this.codeinput" [(ngModel)]="code" name="code" placeholder = "Enter Code">
+                <ion-input class="inputs" [ngStyle]="{'border': style}" *ngIf="this.codeinput" [(ngModel)]="code" name="code" placeholder = "Enter Code">
   
                   </ion-input>
-                  <ion-input class="inputs" *ngIf="this.phonenumberinput" [(ngModel)]="phoneNumber" name="phoneNumber" placeholder = "Phone Number">
+                  <ion-input class="inputs" [ngStyle]="{'border': style}" *ngIf="this.phonenumberinput" [(ngModel)]="phoneNumber" name="phoneNumber" placeholder = "Phone Number">
   
                     </ion-input>    
           </div>
