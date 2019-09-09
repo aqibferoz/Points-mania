@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer } from '@angular/core';
 
 import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -12,6 +12,7 @@ import { first } from 'rxjs/operators';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  @ViewChild('menu', {static: false}) menu: ElementRef;
   public appPages = [
     {
       title: 'Home',
@@ -38,7 +39,8 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar,private api:ApiService,private nav:NavController
+    private statusBar: StatusBar,private api:ApiService,private nav:NavController,
+    public renderer: Renderer
   ) {
     if(localStorage.getItem('userId')){
       this.nav.navigateRoot(['games'])
@@ -57,5 +59,9 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+  logout(){
+    console.log(this.menu.nativeElement);
+this.renderer.setElementProperty(this.menu.nativeElement,'className','ios menu-type-overlay menu-enabled menu-side-start hydrated split-pane-side ')
   }
 }

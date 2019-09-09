@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
 import { element } from 'protractor';
+import { HelperService } from '../services/helper/helper.service';
 
 @Component({
   selector: 'app-game-description',
@@ -27,7 +28,9 @@ password='';
 dummyArray;
 selectedPackage;
 c_symbol;
-  constructor(private route:ActivatedRoute,private api:ApiService,private router:Router) {
+check=false;
+  constructor(private route:ActivatedRoute,private api:ApiService,private router:Router,
+    private helper:HelperService) {
     this.id=this.route.snapshot.paramMap.get('id');
     this.api.getSingleGame(this.id).subscribe(res=>{
       console.log(res);
@@ -88,9 +91,125 @@ console.log(this.prd);
   }
 
 addToCart(){
+let d=[{
+name: this.emailinput,
+value:this.email
+},{
+  name:this.passwordinput,
+  value:this.password
+},{
+  
+  name:this.phonenumberinput,
+  value:this.phoneNumber
+},{
+  name:this.codeinput,
+  value:this.code
+}
+ ,{
+  name:this.usernameinput,
+  value:this.userName
+ }
+
+ 
+  
+]
+d.forEach(item=>{
+  if((item.name==true && item.value==null )||(item.name==true && item.value=='') ||(item.name==true && item.value.length<3) ){
+    console.log("rola ha ");
+    this.check==false;
+  }else{
+this.check==true;
+  }
+})
   if(this.api.order.cart.length==0){
     if(this.prd.type!=null){
+      if(this.check==true){
+        let data={
+          catagory:this.prd.game,
+          description:this.prd.description,
+          image:this.prd.image,
+          inputemail:this.email,
+          inputpassword:this.password,
+          inputcode:this.code,
+          inputphonenumber:this.phoneNumber,
+          inputusername:this.userName,
+          inputplayerid:this.playerId,
+          inputs:this.prd.inputs,
+          name:this.prd.name,
+          packages:this.prd.packages,
+          price:this.prd.price,
+          quantity:this.prd.quantity,
+          type:this.prd.type,
+          id:this.api.gameOrder.cart.length+1
+          
+        }
+         
+          this.api.gameOrder.cart.push(data);
+          localStorage.setItem('gameCart', JSON.stringify(this.api.gameOrder.cart));
+          console.log(this.api.gameOrder.cart);
+          this.prd.price=null;
+          this.prd.quantity=null;
+          this.prd.type=null;
+      
+          this.prd.packages.map(ele=>{
+         
+            return ele['selected']=false
+        
+        })
+      }
+      else{
 
+        this.helper.presentToast('Please Fill Required Inputs correctly ')
+      }
+
+
+  
+  }else{
+    this.helper.presentToast('please select packgae ')
+    }
+  }else{
+    
+    alert("you have different products in cart , to buy this you must clear your cart or complete current cart order!")
+    this.router.navigate(['/cart']);
+  }
+
+  
+}
+buyNow(){
+  let d=[{
+    name: this.emailinput,
+    value:this.email
+    },{
+      name:this.passwordinput,
+      value:this.password
+    },{
+      
+      name:this.phonenumberinput,
+      value:this.phoneNumber
+    },{
+      name:this.codeinput,
+      value:this.code
+    }
+     ,{
+      name:this.usernameinput,
+      value:this.userName
+     }
+    
+     
+      
+    ]
+    d.forEach(item=>{
+      if((item.name==true && item.value==null )||(item.name==true && item.value=='') ||(item.name==true && item.value.length<3) ){
+        console.log("rola ha ");
+        this.check==false;
+      }else{
+    this.check==true;
+      }
+    })
+  if(this.api.order.cart.length==0){
+    if(this.prd.type!=null){
+if(this.check==true){
+    
   let data={
     catagory:this.prd.game,
     description:this.prd.description,
@@ -110,73 +229,31 @@ addToCart(){
     id:this.api.gameOrder.cart.length+1
     
   }
-   
-    this.api.gameOrder.cart.push(data);
-    localStorage.setItem('gameCart', JSON.stringify(this.api.gameOrder.cart));
-    console.log(this.api.gameOrder.cart);
-    this.prd.price=null;
-    this.prd.quantity=null;
-    this.prd.type=null;
 
-    this.prd.packages.map(ele=>{
-   
-      return ele['selected']=false
-  
-  })
-  
-  }else{
-      alert("please select packgae ")
-    }
-  }else{
-    
-    alert("you have different products in cart , to buy this you must clear your cart or complete current cart order!")
-    this.router.navigate(['/cart']);
-  }
 
-  
-}
-buyNow(){
-  if(this.api.order.cart.length==0){
-    if(this.prd.type!=null){
+this.api.gameOrder.cart.push(data);
+localStorage.setItem('gameCart', JSON.stringify(this.api.gameOrder.cart));
+console.log(this.api.gameOrder.cart);
+this.prd.price=null;
+this.prd.quantity=null;
 
-    
-    let data={
-      catagory:this.prd.game,
-      description:this.prd.description,
-      image:this.prd.image,
-      inputemail:this.email,
-      inputpassword:this.password,
-      inputcode:this.code,
-      inputphonenumber:this.phoneNumber,
-      inputusername:this.userName,
-      inputplayerid:this.playerId,
-      inputs:this.prd.inputs,
-      name:this.prd.name,
-      packages:this.prd.packages,
-      price:this.prd.price,
-      quantity:this.prd.quantity,
-      type:this.prd.type,
-      id:this.api.gameOrder.cart.length+1
-      
-    }
-
+this.prd.type=null;
+this.prd.packages.map(ele=>{
  
-  this.api.gameOrder.cart.push(data);
-  localStorage.setItem('gameCart', JSON.stringify(this.api.gameOrder.cart));
-  console.log(this.api.gameOrder.cart);
-  this.prd.price=null;
-  this.prd.quantity=null;
+    return ele['selected']=false
 
-  this.prd.type=null;
-  this.prd.packages.map(ele=>{
+})
+
+
+this.router.navigate(['/cart']);
+}
+else{
+  this.helper.presentToast('Please FIll Required Inputs correctly');
+}
+
+}else{
+  this.helper.presentToast('please select atleast package')
    
-      return ele['selected']=false
-  
-  })
-
-
-  this.router.navigate(['/cart']);}else{
-    alert("please select packgae ")
   }
   }else{
     alert("you have different products in cart , to buy this you must clear your cart or complete current cart order!")
