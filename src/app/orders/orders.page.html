@@ -8,5 +8,46 @@
 </ion-header>
 
 <ion-content>
+ 
+    <ion-item lines="none" style="padding: 15px;">
+      <ion-label>Order Type</ion-label>
+      <ion-select placeholder="Select One" (ionChange)="filter($event)">
+        <ion-select-option value="due">Due Payment</ion-select-option>
+        <ion-select-option value="complete">Completed</ion-select-option>
+        <ion-select-option value="under">Under Process</ion-select-option>
+        <ion-select-option value="all">All</ion-select-option>
+      </ion-select>
+    </ion-item>
+<ion-grid>
 
+  <ion-row *ngFor="let item of orders" (click)="viewOrder(item)" >
+      <ion-col size="12"  class="cards">
+        <ion-row>
+          <ion-col size="2" style="color: green">
+            {{item.createdDate | date}}
+          </ion-col>
+          <ion-col size="7">
+            <p style="margin: 0px !important">{{item.id}}</p>
+            <div style="margin-top: 5px"> <span style="color: red" *ngIf="item.payment==false"> Payment Pending</span></div>
+            <div style="margin-top: 5px"> <span style="color: green" *ngIf="item.payment==true"> Payment Completed</span></div>
+            <div style="margin-top: 8px"> <span style="color: rgb(253, 125, 51);font-size: 20px"> {{item.totalAmount}} <b style="font-size: 15px;color:black"> {{item.currency}}</b></span></div>
+         
+          </ion-col>
+          <ion-col size="2" >
+              <ion-badge color="primary" *ngIf="item.status=='notDelivered'">Pending</ion-badge>
+              <ion-badge color="green" *ngIf="item.status=='Delivered'">Completed</ion-badge>
+  
+          
+          </ion-col>
+        </ion-row>
+        <!-- <ion-row style="border: 1px solid Orange">
+          <ion-item lines="none" no-padding style="    font-family: monospace;
+        
+          padding: 0px 0px 0px 22px;">
+  {{item.product.price}} x {{item.quantity}} = {{item.product.price * item.quantity}}
+          </ion-item>
+        </ion-row> -->
+      </ion-col>
+    </ion-row>
+</ion-grid>
 </ion-content>

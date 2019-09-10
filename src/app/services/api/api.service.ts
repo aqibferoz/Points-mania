@@ -13,7 +13,7 @@ order={
   customerUserName:'',
   totalAmount:0,
   customerEmail:'',
-  type:'',
+  type:'product',
   firstName:'',
   lastName:'',
   address:'',
@@ -26,11 +26,13 @@ order={
   chargesName:'',
   createdDate:this.date,
   payment:false,
- delivered:false
+
+ status:'notDelivered'
 
 
 }
 gameOrder={
+  type:'game',
   cart:[],
   customerId:'',
   customerUserName:'',
@@ -44,7 +46,8 @@ gameOrder={
   chargesName:'',
   createdDate:this.date,
   payment:false,
-  delivered:false
+  delivered:false,
+  status:'notDelivered'
 
 
 }
@@ -109,6 +112,9 @@ currency_value;
   }
 getCurrentOrder(userid){
   return this.afs.collection('orders',ref=>ref.where('customerId','==',userid).orderBy('createdDate','desc')).snapshotChanges();
+}
+getSingleOrder(id){
+  return this.afs.doc('orders/'+id).valueChanges();
 }
 }
 

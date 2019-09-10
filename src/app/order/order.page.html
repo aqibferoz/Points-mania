@@ -1,97 +1,117 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Order Received</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="cart"></ion-back-button>
+          </ion-buttons>
+      <ion-title>Order</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
 
-<ion-content>
-<div padding class="div-styles">
-  <ion-row>
-  <ion-label class="leb" style="padding: 0 0 10px 5px !important;">
-    <b>Waiting for payment</b>
-  </ion-label>
-</ion-row>
-<ion-row>
-  <ion-label class="leb" style="padding: 0 0 0 5px !important;">Your order number is</ion-label>
-</ion-row>
-<ion-row>
-  <ion-label class="leb" style="padding: 0 0 0 5px !important;">
-    3740185472694785
-  </ion-label>
-</ion-row>
-</div>
-<ion-row></ion-row>
-
-
-<div padding>
-  <ion-row>
-   <ion-label class="ref"> Reference number expires in</ion-label>
-  </ion-row>
-
-  <ion-row>
-      <ion-label class="ref">Complete payment before <b class="time">5:22 PM 11 Sep 2019</b></ion-label>
-     </ion-row>
-</div>
-
-<div padding class="borders">
-  <ion-row>
-    <ion-label>reference number</ion-label>
-  </ion-row>
-  <ion-row style="border-bottom: 1px solid rgb(206, 201, 201) !important;">
-      <ion-label style="padding: 2px 0 8px 0 !important;"><b>1135546326</b></ion-label>
+  
+  <ion-row class="cart" *ngIf="this.api.order.cart.length>0" >
+    <ion-col size="12" text-center> 
+      <ion-label> Your Cart</ion-label>
+    </ion-col>
+      <ion-col size="12">
+        <ion-row *ngFor="let item of api.order.cart">
+          <ion-col size="3">
+            <img [src]="item.product.image">
+          </ion-col>
+          <ion-col size="6">
+            <p style="margin: 0px !important">{{item.product.name}}</p>
+            <div style="margin-top: 5px"> <span style="color: grey"> {{item.product.color}}</span></div>
+            <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 15);font-size: 12px">Quantity:<b style="color: black">{{item.quantity}}</b></span></div>
+            <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 10);font-size: 12px">Price:<b style="color: black">{{item.product.price}}</b> <b style="font-size: 10px">{{c_symbol}}</b></span></div>
+         
+          </ion-col>
+          <ion-col size="3" style="margin: auto" >
+  <div>
+    {{item.generalTotal}} <b style="font-size: 10px">{{c_symbol}}</b>
+  </div>
+          </ion-col>
+          
+        </ion-row>
+        
+      </ion-col>
     </ion-row>
-
-<ion-row class="padding">
-  <ion-col size = "4">
-  <ion-label style="font-size: small;" >Amount</ion-label>
-</ion-col>
-<ion-col size = '5'></ion-col>
-<ion-col size = '3'>
-  <ion-label style="color: red !important;"><b>$29,080</b>  </ion-label>
-</ion-col>
-</ion-row>
-
-<ion-row>
-  <ion-label style="font-size: small;">
-    Please pay by APP/USSD within 48 hours
-  </ion-label>
-</ion-row>
-</div>
-
-<ion-row padding>
-  <ion-label class="time"><b>Payment Instructions </b></ion-label>
-</ion-row>
-
-<div padding class="back">
-  <ion-row>
-<ion-label class="times">
-  1. For App Payment
-</ion-label>
-</ion-row>
-
-<ion-row>
-<ion-label class="times">
-  2. Make Payment
-</ion-label>
-</ion-row>
-
-<ion-row>
-<ion-label class="times">
-  3. Enter Merchant number
-</ion-label>
-</ion-row>
-
-<ion-row>
-<ion-label class="times">
-  4. Enter total order amount
-</ion-label>
-</ion-row>
-
-<ion-row>
-<ion-label class="times">
-  5. Enter Reference Number
-</ion-label>
-</ion-row>
-</div>
-
-</ion-content>
+    <ion-row class="cart" style="margin-bottom: 70px" *ngIf="this.api.order.cart.length>0">
+     <ion-col size="6" text-left class="lab">
+       <ion-label>Total Amount</ion-label>
+     </ion-col>
+     <ion-col size="6" text-right class="lab">
+        <ion-label>{{totalAmount}} <b style="font-size: 10px">{{c_symbol}}</b></ion-label>
+      </ion-col>
+      <ion-col size="6" text-left class="lab">
+          <ion-label>Delivery Amount</ion-label>
+        </ion-col>
+        <ion-col size="6" text-right class="lab">
+           <ion-label>0</ion-label>
+         </ion-col>
+         <ion-col size="6" text-left style="padding: 10px">
+            <ion-label>SubTotal</ion-label>
+          </ion-col>
+          <ion-col size="6" text-right >
+             <ion-label style="font-weight: bolder;font-size:25px">-/{{totalAmount}} <b style="font-size: 15px">{{c_symbol}}</b></ion-label>
+           </ion-col>
+    </ion-row>
+  
+  
+  
+    <ion-row class="cart" *ngIf="this.api.gameOrder.cart.length>0" >
+        <ion-col size="12" text-center> 
+          <ion-label> Your Cart</ion-label>
+        </ion-col>
+          <ion-col size="12">
+            <ion-row *ngFor="let item of api.gameOrder.cart" style="border-bottom:1px solid chocolate">
+              <ion-col size="3">
+                <img [src]="item.image">
+              </ion-col>
+              <ion-col size="6">
+                <p style="margin: 0px !important">{{item.name}}</p>
+                <div style="margin-top: 5px"> <span style="color: grey"> {{item.type}}s  </span>  <img *ngIf="item.type=='diamond'" style="height: 20px" src="../../assets/icon/diamond.svg">
+                  <img *ngIf="item.type=='coin'"  style="height: 20px" src="../../assets/icon/coins.svg"></div>
+                <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 15);font-size: 12px">Quantity:<b style="color: black">{{item.quantity}}</b></span></div>
+                <div style="margin-top: 8px"> <span style="color: rgb(233, 124, 10);font-size: 12px">Price:<b style="color: black">{{item.price}}</b> <b style="font-size: 10px">{{c_symbol}}</b></span></div>
+             
+              </ion-col>
+              <ion-col size="3" style="margin: auto" >
+      <div>
+        {{item.price}} <b style="font-size: 10px">{{c_symbol}}</b>
+      </div>
+              </ion-col>
+              
+            </ion-row>
+            
+          </ion-col>
+        </ion-row>
+        <ion-row class="cart" style="margin-bottom: 70px" *ngIf="this.api.gameOrder.cart.length>0">
+         <!-- <ion-col size="6" text-left class="lab">
+           <ion-label>Total Amount</ion-label>
+         </ion-col> -->
+         <!-- <ion-col size="6" text-right class="lab">
+            <ion-label>{{totalGame}}  <b style="font-size: 10px">{{c_symbol}}</b></ion-label>
+          </ion-col>
+          <ion-col size="6" text-left class="lab">
+              <ion-label>Delivery Amount</ion-label>
+            </ion-col>
+            <ion-col size="6" text-right class="lab">
+               <ion-label>0</ion-label>
+             </ion-col> -->
+             <ion-col size="6" text-left style="margin: auto" >
+                <ion-label>SubTotal</ion-label>
+              </ion-col>
+              <ion-col size="6" text-right >
+                 <ion-label style="font-weight: bolder;font-size:25px">-/{{totalGame}} <b style="font-size: 15px">{{c_symbol}}</b></ion-label>
+               </ion-col>
+        </ion-row>
+  
+  
+  
+      <ion-footer class="footer">
+          <ion-button class="footerButton" expand="full" (click)="placeOrder()">Place Order</ion-button>
+        
+        </ion-footer>
+  </ion-content>
+  

@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
   { path: 'choose-payment', loadChildren: './choose-payment/choose-payment.module#ChoosePaymentPageModule' },
   { path: 'bkash/:amount', loadChildren: './bkash/bkash.module#BkashPageModule' },
-  { path: 'order', loadChildren: './order/order.module#OrderPageModule' },
+  { path: 'order/:id', loadChildren: './order/order.module#OrderPageModule' },
   { path: 'orders', loadChildren: './orders/orders.module#OrdersPageModule' },
   { path: 'contact-us', loadChildren: './contact-us/contact-us.module#ContactUsPageModule' },
 

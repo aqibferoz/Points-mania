@@ -1,27 +1,26 @@
-.div-styles{
-    background: orange !important;
-}
-.leb{
-    color: white !important;
-}
-.ref{
-    padding: 5px 0 0 5px !important;
-}
-.borders{
-    border: 1px solid rgb(206, 201, 201) !important;
-    width: 90%;
-    margin: auto;
-}
-.time{
-    font-size: small !important;
-}
-.times{
-    font-size: small !important;
-    padding: 10px 0 0 10px !important;
-}
-.padding{
-    padding: 5px 0 10px 0 !important;
-}
-.back{
-    background: rgb(243, 241, 241) !important;
-}
+.cart{
+    
+    border:1px solid orange;
+    border-radius: 15px !important;    margin: 10px;
+    }
+    .inputs{
+        border-bottom: 1px solid orange;
+        text-align: center;
+        color: orangered;
+    }
+    .lab{
+        border-bottom: 1px solid orange;
+        padding: 10px
+    }
+    .footerButton{
+        padding: 0px;
+        margin: 0px;
+        height: 63px;
+      
+        --background: orange;
+       
+    }
+    .footer{
+        position: fixed !important;
+        bottom: 0px !important;
+    }
