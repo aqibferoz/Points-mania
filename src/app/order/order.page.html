@@ -59,12 +59,22 @@
               <ion-col >
                   <ion-item lines="none" >
                 <ion-label>Total Amount</ion-label>
-                <ion-label style="color: orange">{{order.totalAmount}}</ion-label>
+                <ion-label style="color: orangered">{{order.totalAmount}} <b style="color: black">{{order.currency}}</b></ion-label>
                 </ion-item>
         
               </ion-col>
             
             </ion-row>
+            <ion-row>
+                <ion-col >
+                    <ion-item lines="none" >
+                  <ion-label>Reference No</ion-label>
+                  <ion-label style="color: blue">{{order.id}} </ion-label>
+                  </ion-item>
+          
+                </ion-col>
+              
+              </ion-row>
       <ion-row>
         <ion-col>
           <ion-item lines="none">
@@ -102,26 +112,7 @@
         
       </ion-col>
     </ion-row>
-    <ion-row class="cart" style="margin-bottom: 70px" *ngIf="order.type=='product'">
-     <ion-col size="6" text-left class="lab">
-       <ion-label>Total Amount</ion-label>
-     </ion-col>
-     <ion-col size="6" text-right class="lab">
-        <ion-label>{{order.totalAmount}} <b style="font-size: 10px">{{order.currency}}</b></ion-label>
-      </ion-col>
-      <ion-col size="6" text-left class="lab">
-          <ion-label>Delivery Amount</ion-label>
-        </ion-col>
-        <ion-col size="6" text-right class="lab">
-           <ion-label>0</ion-label>
-         </ion-col>
-         <ion-col size="6" text-left style="padding: 10px">
-            <ion-label>SubTotal</ion-label>
-          </ion-col>
-          <ion-col size="6" text-right >
-             <ion-label style="font-weight: bolder;font-size:25px">-/{{order.totalAmount}} <b style="font-size: 15px">{{order.currency}}</b></ion-label>
-           </ion-col>
-    </ion-row>
+ 
   
   
   
@@ -152,26 +143,7 @@
             
           </ion-col>
         </ion-row>
-        <ion-row class="cart" style="margin-bottom: 70px" *ngIf="order.type=='game'">
-         <!-- <ion-col size="6" text-left class="lab">
-           <ion-label>Total Amount</ion-label>
-         </ion-col> -->
-         <!-- <ion-col size="6" text-right class="lab">
-            <ion-label>{{totalGame}}  <b style="font-size: 10px">{{c_symbol}}</b></ion-label>
-          </ion-col>
-          <ion-col size="6" text-left class="lab">
-              <ion-label>Delivery Amount</ion-label>
-            </ion-col>
-            <ion-col size="6" text-right class="lab">
-               <ion-label>0</ion-label>
-             </ion-col> -->
-             <ion-col size="6" text-left style="margin: auto" >
-                <ion-label>SubTotal</ion-label>
-              </ion-col>
-              <ion-col size="6" text-right >
-                 <ion-label style="font-weight: bolder;font-size:25px">-/{{order.totalAmount}} <b style="font-size: 15px">{{order.currency}}</b></ion-label>
-               </ion-col>
-        </ion-row>
+ 
   
   
   
