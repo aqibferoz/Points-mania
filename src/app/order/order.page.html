@@ -7,7 +7,7 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content>
+  <ion-content *ngIf="order">
 
   
   <ion-row class="cart" *ngIf="order.type=='product'" >
