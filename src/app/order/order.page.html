@@ -13,9 +13,12 @@
     <ion-grid>
       <ion-row>
         <ion-col text-center size="12">
-          <ion-label>Order No</ion-label>
+          <ion-label style="font-weight: bolder">Order No</ion-label>
         </ion-col>
-        <ion-col text-center size="12">
+        <ion-col text-center size="12" style="border: 1px solid orange;
+       
+        padding: 18px;
+        border-radius: 20px;">
             <ion-label>{{id}}</ion-label>
           </ion-col>
       </ion-row>
@@ -67,7 +70,7 @@
             </ion-row>
             <ion-row>
                 <ion-col >
-                    <ion-item lines="none" >
+                    <ion-item lines="none" *ngIf="order.payment==false"  >
                   <ion-label>Reference No</ion-label>
                   <p style="color: blue">{{id}} </p>
                   </ion-item>
@@ -75,20 +78,85 @@
                 </ion-col>
               
               </ion-row>
-      <ion-row>
-        <ion-col>
+      <ion-row *ngIf="order.type=='game'">
+        <ion-col size="12">
           <ion-item lines="none">
             <ion-label slot="start"> First Name</ion-label>
             <p > {{order.firstName}}</p>
           </ion-item>
         </ion-col>
+        <ion-col size="12">
+            <ion-item lines="none">
+              <ion-label slot="start"> Last Name</ion-label>
+              <p > {{order.lastName}}</p>
+            </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item lines="none">
+                <ion-label slot="start"> Email</ion-label>
+                <p > {{order.customerEmail}}</p>
+              </ion-item>
+            </ion-col >
+            <ion-col size="12">
+                <ion-item lines="none">
+                  <ion-label slot="start"> Phone Number</ion-label>
+                  <p > {{order.phoneNumber}}</p>
+                </ion-item>
+              </ion-col>
+              
       </ion-row>
+
+      <ion-row *ngIf="order.type=='product'">
+          <ion-col size="12">
+            <ion-item lines="none">
+              <ion-label slot="start"> First Name</ion-label>
+              <p > {{order.firstName}}</p>
+            </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item lines="none">
+                <ion-label slot="start"> Last Name</ion-label>
+                <p > {{order.lastName}}</p>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item lines="none">
+                  <ion-label slot="start"> Email</ion-label>
+                  <p > {{order.customerEmail}}</p>
+                </ion-item>
+              </ion-col>
+              <ion-col size="12">
+                  <ion-item lines="none">
+                    <ion-label slot="start"> Phone Number</ion-label>
+                    <p > {{order.phoneNumber}}</p>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-item lines="none">
+                      <ion-label slot="start"> City</ion-label>
+                      <p > {{order.city}}</p>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="12">
+                      <ion-item lines="none">
+                        <ion-label slot="start"> Country</ion-label>
+                        <p > {{order.country}}</p>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col size="12">
+                        <ion-item lines="none">
+                          <ion-label slot="start"> Address</ion-label>
+                          <p > {{order.address}}</p>
+                        </ion-item>
+                      </ion-col>
+
+        </ion-row>
     </ion-grid>
 
   
   <ion-row class="cart" *ngIf="order.type=='product'" >
     <ion-col size="12" text-center> 
-      <ion-label> Your Cart</ion-label>
+      <ion-label> Your Oder</ion-label>
     </ion-col>
       <ion-col size="12">
         <ion-row *ngFor="let item of order.cart">
@@ -118,7 +186,7 @@
   
     <ion-row class="cart" *ngIf="order.type=='game'">
         <ion-col size="12" text-center> 
-          <ion-label> Your Cart</ion-label>
+          <ion-label> Your Order</ion-label>
         </ion-col>
           <ion-col size="12">
             <ion-row *ngFor="let item of order.cart" style="border-bottom:1px solid chocolate">
