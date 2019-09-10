@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
 import { first,map } from 'rxjs/operators';
 import { HelperService } from '../services/helper/helper.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.page.html',
@@ -9,7 +10,7 @@ import { HelperService } from '../services/helper/helper.service';
 })
 export class OrdersPage implements OnInit {
 
-  constructor(private api:ApiService,private helper:HelperService) { }
+  constructor(private api:ApiService,private helper:HelperService,private router:Router) { }
 orders;
   ngOnInit() {
     this.helper.presentLoading('Getting Results');
@@ -66,5 +67,6 @@ else if(event.target.value=='under'){
 }
 viewOrder(item){
   console.log(item);
+  this.router.navigate(['/order/'+item.id]);
 }
 }

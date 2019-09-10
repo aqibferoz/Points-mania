@@ -85,7 +85,7 @@ this.api.order.lastName=this.lname;
 this.api.order.country=this.country;
 this.api.order.phoneNumber=this.phone_number;
 this.api.order.postCode=this.post_code;
-this.api.order.type='product',
+
 this.api.order.totalAmount=this.totalAmount;
 this.api.order.customerUserName=this.userName;
 let data={

@@ -16,6 +16,7 @@ order;
 this.id=this.route.snapshot.paramMap.get('id');
 this.api.getSingleOrder(this.id).subscribe(res=>{
   this.order=res;
+  console.log(this.order);
   this.helper.dismissLoad();
 })
    }
