@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
 import {map, first} from 'rxjs/operators'
+import { HelperService } from '../services/helper/helper.service';
 
 @Component({
   selector: 'app-games',
@@ -18,10 +19,10 @@ dummyGames;
 dummyPlayCards;
 filterText;
 notFound=false;
-  constructor(private router :Router,private api:ApiService) { }
+  constructor(private router :Router,private api:ApiService,private helper:HelperService) { }
 
   ngOnInit() {
-
+this.helper.presentLoading('');
     console.log(this.api.currency_value);
     if(this.api.user_currency ==null && this.api.user_country==null && this.api.currency_value ==null){
 
@@ -98,6 +99,7 @@ console.log(this.games);
     this.products.map(item=>{
       return item['price']=Math.round( item.price *this.api.currency_value)
     })
+    this.helper.dismissLoad();
     console.log(this.products);
     // this.dummyProducts.map(item=>{
     //   return item['price']=Math.round( item.price *this.api.currency_value)

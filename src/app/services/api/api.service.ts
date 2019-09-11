@@ -6,13 +6,14 @@ import{HttpClient}from '@angular/common/http'
   providedIn: 'root'
 })
 export class ApiService {
+  date=Date.now();
 order={
   cart:[],
   customerId:'',
   customerUserName:'',
   totalAmount:0,
   customerEmail:'',
-  type:'',
+  type:'product',
   firstName:'',
   lastName:'',
   address:'',
@@ -22,11 +23,16 @@ order={
   city:'',
   postCode:0,
   charges:0,
-  chargesName:''
+  chargesName:'',
+  createdDate:this.date,
+  payment:false,
+
+ status:'notDelivered'
 
 
 }
 gameOrder={
+  type:'game',
   cart:[],
   customerId:'',
   customerUserName:'',
@@ -37,7 +43,11 @@ gameOrder={
   phoneNumber:'',
   currency:'',
   charges:0,
-  chargesName:''
+  chargesName:'',
+  createdDate:this.date,
+  payment:false,
+  delivered:false,
+  status:'notDelivered'
 
 
 }
@@ -100,6 +110,11 @@ currency_value;
   submitQuery(data){
     return this.afs.collection('queries').add(data);
   }
-
+getCurrentOrder(userid){
+  return this.afs.collection('orders',ref=>ref.where('customerId','==',userid).orderBy('createdDate','desc')).snapshotChanges();
+}
+getSingleOrder(id){
+  return this.afs.doc('orders/'+id).valueChanges();
+}
 }
 

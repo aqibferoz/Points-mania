@@ -42,14 +42,24 @@ export class AppComponent {
     private statusBar: StatusBar,private api:ApiService,private nav:NavController,
     public renderer: Renderer
   ) {
+    this.initializeApp();
     if(localStorage.getItem('userId')){
-      this.nav.navigateRoot(['games'])
-    
+      this.nav.navigateRoot(['games']);
+      let a=JSON.parse(localStorage.getItem('productCart')) ;
+      let b =JSON.parse(localStorage.getItem('gameCart')) ;
+    console.log(a);
+    console.log(b);
+    if(a){
+      this.api.order.cart=a;
+
+    }else if(b){
+      this.api.gameOrder.cart=b;
+    }
     }
     else{
       this.nav.navigateRoot(['signup'])
     }
-    this.initializeApp();
+
 
  
   }
@@ -57,6 +67,9 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
+      this.statusBar.overlaysWebView(true);
+
+      this.statusBar.backgroundColorByHexString('#ffffff');
       this.splashScreen.hide();
     });
   }
@@ -65,3 +78,4 @@ export class AppComponent {
 this.renderer.setElementProperty(this.menu.nativeElement,'className','ios menu-type-overlay menu-enabled menu-side-start hydrated split-pane-side ')
   }
 }
+  
