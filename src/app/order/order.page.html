@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
             <ion-back-button defaultHref="cart"></ion-back-button>
           </ion-buttons>
-      <ion-title>Order Details</ion-title>
+      <ion-title>Order Details  </ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -38,6 +38,15 @@
             <ion-label>Payment</ion-label>
             <ion-label style="color: red">Incomplete</ion-label>
             </ion-item>
+            <ion-item lines="none" *ngIf="order.payment==false">
+              <ion-label>Time Left To Pay</ion-label>
+              <ion-label style="color: red;text-align: center;
+              border: 1px solid darkorchid;
+              border-radius: 10px;
+              padding: 10px;"><countdown [config]="{leftTime: time}"></countdown></ion-label>
+              </ion-item>
+              
+            
             <ion-item lines="none" *ngIf="order.payment==true">
                 <ion-label>Payment</ion-label>
                 <ion-label style="color: greenyellow">Completed</ion-label>

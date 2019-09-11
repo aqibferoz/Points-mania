@@ -10,6 +10,9 @@ import { ApiService } from '../services/api/api.service';
 export class ChoosePaymentPage implements OnInit {
 c_symbol;
   constructor(private router:Router,private api:ApiService) {
+    if(this.api.gameOrder.cart.length==0 && this.api.order.cart.length==0){
+      this.router.navigate(['games']);
+    }
     this.c_symbol=this.api.user_currency;
     console.log(this.c_symbol);
    }

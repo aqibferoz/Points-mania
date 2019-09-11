@@ -12,6 +12,7 @@ export class OrdersPage implements OnInit {
 
   constructor(private api:ApiService,private helper:HelperService,private router:Router) { }
 orders;
+today = new Date();
   ngOnInit() {
     this.helper.presentLoading('Getting Results');
     this.getAllOrders();
@@ -26,6 +27,19 @@ getAllOrders(){
     this.helper.dismissLoad();
 console.log(res);
 this.orders=res;
+console.log(this.today);
+this.orders.forEach(element => {
+  var day = new Date(element.createdDate);
+  var nextDay = new Date(day);
+        nextDay.setDate(day.getDate() + 1);
+        if(this.today>=nextDay && element.payment==false){
+
+          this.api.deleteOrder(element.id).then(res=>{
+            console.log("order Deleted");
+          })
+        }
+  
+});
 
   })
 }

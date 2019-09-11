@@ -116,5 +116,8 @@ getCurrentOrder(userid){
 getSingleOrder(id){
   return this.afs.doc('orders/'+id).valueChanges();
 }
+deleteOrder(id){
+  return this.afs.doc('orders/'+id).delete();
+}
 }
 

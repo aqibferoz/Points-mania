@@ -16,8 +16,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import{FormsModule} from '@angular/forms';
 import{HttpClientModule,HttpClient}from '@angular/common/http';
-import{Stripe} from '@ionic-native/stripe/ngx'
-
+import{Stripe} from '@ionic-native/stripe/ngx';
+import { CountdownModule } from 'ngx-countdown';
+import { Clipboard } from '@ionic-native/clipboard/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -27,6 +28,7 @@ import{Stripe} from '@ionic-native/stripe/ngx'
     AngularFirestoreModule,
     AngularFireStorageModule,
     HttpClientModule,
+    CountdownModule,
 
    
 
@@ -37,6 +39,7 @@ import{Stripe} from '@ionic-native/stripe/ngx'
     Stripe,
     HttpClient,
     SplashScreen,
+    Clipboard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

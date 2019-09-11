@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { BkashPage } from './bkash.page';
+import { CountdownModule } from 'ngx-countdown';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    CountdownModule,
     RouterModule.forChild(routes)
   ],
   declarations: [BkashPage]

@@ -28,13 +28,13 @@
   
   
   <div padding>
-    <!-- <ion-row>
+    <ion-row>
      <ion-label class="ref"> Reference number expires in</ion-label>
-    </ion-row> -->
+    </ion-row>
   
-    <!-- <ion-row>
-        <ion-label class="ref">Complete payment before <b class="time">5:22 PM 11 Sep 2019</b></ion-label>
-       </ion-row> -->
+    <ion-row>
+        <ion-label class="ref">Complete payment before <b class="time"><countdown [config]="{leftTime: time}"></countdown></b></ion-label>
+       </ion-row>
   </div>
   
   <div padding class="borders">
@@ -43,6 +43,9 @@
     </ion-row>
     <ion-row style="border-bottom: 1px solid rgb(206, 201, 201) !important;">
         <ion-label style="padding: 2px 0 8px 0 !important;"><b>{{currentOrder.id}}</b></ion-label>
+      </ion-row>
+      <ion-row>
+       <ion-button (click)="copyText(currentOrder.id)">Copy reference number</ion-button>
       </ion-row>
   
   <ion-row class="padding">
