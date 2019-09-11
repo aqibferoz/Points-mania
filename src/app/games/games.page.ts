@@ -26,13 +26,15 @@ this.helper.presentLoading('');
     console.log(this.api.currency_value);
     if(this.api.user_currency ==null && this.api.user_country==null && this.api.currency_value ==null){
 
-   
+   alert("here comes");
     this.api.getUser(localStorage.getItem('userId')).pipe(first()).toPromise().then((res:any)=>{
+      alert('user');
       this.api.user_country=res.userCountry;
       this.api.user_currency=res.userCurrency;
       console.log(this.api.user_country);
       console.log(this.api.user_currency);
       this.api.convertCurrency(this.api.user_currency).subscribe(res=>{
+        alert('currency')
         console.log(res);
         this.api.currency_value=res
 let b=Object.values(res);
@@ -46,9 +48,14 @@ this.api.currency_value=b[0]
         this.getPlayCard();
         this.getProducts();
         this.c_symbol=this.api.user_currency;
-      })
+      }),err=>{
+        alert(err+'currency error')
+      }
+    }).catch(err=>{
+    alert(err+'user error');
     });
   }else{
+    alert('else')
     this.c_symbol=this.api.user_currency;
     this.getGames();
     this.getPlayCard();
