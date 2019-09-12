@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
 import { first,map } from 'rxjs/operators';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
+import { HelperService } from '../services/helper/helper.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class BkashPage implements OnInit {
 currentOrder;
 time;
 id;
-  constructor(private api:ApiService,private clip:Clipboard) { }
+  constructor(private api:ApiService,private clip:Clipboard,private helper:HelperService) { }
 
   ngOnInit() {this.getOrder();
   }
@@ -42,6 +43,7 @@ this.time=Seconds_Between_Dates;
 }
 copyText(text){
   this.clip.copy(text);
+  this.helper.presentToast('Ref# Copied on Clipboard !')
 }
 
 }

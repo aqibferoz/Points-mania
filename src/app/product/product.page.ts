@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HelperService } from '../services/helper/helper.service';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +13,7 @@ export class ProductPage implements OnInit {
   prdId;
   prd;
   c_symbol;
-  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) {
+  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute,private helper:HelperService) {
 
     this.prdId = this.route.snapshot.paramMap.get('id');
     console.log(this.prdId);
@@ -36,7 +37,14 @@ export class ProductPage implements OnInit {
 
   }
   add() {
+    if(this.quantity<=15){
+
+  
     this.quantity = this.quantity + 1;
+  }else{
+    this.helper.presentToast('You Reached Maximum Quantity !')
+  }
+
   }
   addToCart() {
     if (this.api.gameOrder.cart.length == 0) {
