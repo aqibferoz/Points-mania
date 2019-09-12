@@ -74,8 +74,8 @@ export class AppComponent {
     });
   }
   logout(){
-    console.log(this.menu.nativeElement);
-this.renderer.setElementProperty(this.menu.nativeElement,'className','ios menu-type-overlay menu-enabled menu-side-start hydrated split-pane-side ')
+  localStorage.clear();
+this.nav.navigateRoot(['signin']);
   }
 }
   

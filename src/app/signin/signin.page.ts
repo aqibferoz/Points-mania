@@ -3,7 +3,7 @@ import { AuthService } from '../services/auth/auth.service';
 import { ApiService } from '../services/api/api.service';
 import { Router } from '@angular/router';
 import { HelperService } from '../services/helper/helper.service';
-import { NavController, AlertController } from '@ionic/angular';
+import { NavController, AlertController, MenuController } from '@ionic/angular';
 import { map, first } from 'rxjs/operators';
 
 @Component({
@@ -19,7 +19,10 @@ export class SigninPage implements OnInit {
   passwordShown: boolean = false;
 
   constructor(private auth: AuthService, private navCtrl: NavController, private alertCtrl: AlertController,
-    private api: ApiService,private router:Router,private helper:HelperService) { }
+    private api: ApiService,private router:Router,private helper:HelperService,
+    public menuCtrl: MenuController) {
+      this.menuCtrl.enable(false);
+     }
 
   ngOnInit() {
   }

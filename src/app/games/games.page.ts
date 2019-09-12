@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
 import {map, first} from 'rxjs/operators'
 import { HelperService } from '../services/helper/helper.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-games',
@@ -19,7 +20,9 @@ dummyGames;
 dummyPlayCards;
 filterText;
 notFound=false;
-  constructor(private router :Router,private api:ApiService,private helper:HelperService) { }
+  constructor(private router :Router,private api:ApiService,private helper:HelperService,private menu:MenuController) { 
+    this.menu.enable(true);
+  }
 
   ngOnInit() {
 this.helper.presentLoading('');
