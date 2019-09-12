@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-choose-payment',
@@ -9,7 +10,7 @@ import { ApiService } from '../services/api/api.service';
 })
 export class ChoosePaymentPage implements OnInit {
 c_symbol;
-  constructor(private router:Router,private api:ApiService) {
+  constructor(private router:Router,private api:ApiService,private navCtrl:NavController) {
     if(this.api.gameOrder.cart.length==0 && this.api.order.cart.length==0){
       this.router.navigate(['games']);
     }
@@ -32,19 +33,18 @@ bkash(){
       
       localStorage.removeItem('productCart');
       this.api.order.cart=[];
-      this.router.navigate(['/bkash/'+amount]);
+     this.navCtrl.navigateRoot(['bkash'])
     })
-  }else{
-    if(this.api.gameOrder.cart.length>0){
-      console.log(this.api.gameOrder);
+  }else if(this.api.gameOrder.cart.length>0){
+      // console.log(this.api.gameOrder);
       this.api.createOrder(this.api.gameOrder).then(res=>{
         console.log("order created");
         let amount=this.api.gameOrder.totalAmount;
         localStorage.removeItem('gameCart');
         this.api.gameOrder.cart=[];
-        this.router.navigate(['/bkash/'+amount]);
+        this.navCtrl.navigateRoot(['bkash'])
       })
-    }
+    
   }
 
 

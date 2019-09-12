@@ -23,8 +23,11 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-searchbar  [(ngModel)]="filterText" name="filterText" (ionChange)="filter($event)" style="padding: 12px;"></ion-searchbar>
+<ion-item lines="none" style="padding: 5px;
+border-radius: 100px !important;" >
+  <ion-input  [(ngModel)]="filterText" name="filterText" (ionChange)="filter($event)" ><ion-icon name="search"></ion-icon></ion-input>
+</ion-item>
+  <!-- <ion-searchbar  [(ngModel)]="filterText" name="filterText" (ionChange)="filter($event)" style="padding: 12px;"></ion-searchbar> -->
 
 <!-- 
       <div [ngSwitch]="request" style="padding:0px !important">

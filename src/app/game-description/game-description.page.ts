@@ -134,7 +134,7 @@ console.log(this.check);
     if(this.prd.type!=null){
       if(this.check==true){
         let data={
-          catagory:this.prd.game,
+          catagory:this.prd.catagory,
           description:this.prd.description,
           image:this.prd.image,
           inputemail:this.email,
@@ -226,7 +226,7 @@ buyNow(){
 if(this.check==true){
     
   let data={
-    catagory:this.prd.game,
+    catagory:this.prd.catagory,
     description:this.prd.description,
     image:this.prd.image,
     inputemail:this.email,

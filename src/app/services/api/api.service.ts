@@ -24,7 +24,7 @@ order={
   postCode:0,
   charges:0,
   chargesName:'',
-  createdDate:this.date,
+  createdDate:'this.date',
   payment:false,
 
  status:'notDelivered'
@@ -101,6 +101,7 @@ currency_value;
     return this.http.get('https://free.currconv.com/api/v7/convert?q='+manual+'_USD&compact=ultra&apiKey=036b851e8f787316c9df');
   }
   createOrder(data){
+    console.log(data);
     return this.afs.collection('orders').add(data);
   }
   getOrders(userid){
