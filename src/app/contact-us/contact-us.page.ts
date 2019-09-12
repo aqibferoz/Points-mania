@@ -42,7 +42,8 @@ otherQuery(){
       email:this.email,
       subject:this.subject,
       message:this.message,
-      type:"other"
+      type:"other",
+      created:Date.now()
     }
     console.log(data);
     this.api.submitQuery(data).then(res=>{
@@ -74,7 +75,8 @@ orderQuery(){
       subject:this.subject,
       message:this.message,
       orderNo:this.orderNo,
-      type:"order"
+      type:"order",
+      created:Date.now()
     }
     console.log(data);
     this.api.submitQuery(data).then(res=>{
