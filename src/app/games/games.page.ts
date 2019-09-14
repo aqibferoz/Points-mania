@@ -4,6 +4,7 @@ import { ApiService } from '../services/api/api.service';
 import {map, first} from 'rxjs/operators'
 import { HelperService } from '../services/helper/helper.service';
 import { MenuController } from '@ionic/angular';
+import undefined = require('firebase/empty-import');
 
 @Component({
   selector: 'app-games',
@@ -27,7 +28,9 @@ notFound=false;
   ngOnInit() {
 this.helper.presentLoading('');
     console.log(this.api.currency_value);
-    if(this.api.user_currency ==null && this.api.user_country==null && this.api.currency_value ==null){
+    console.log(this.api.user_currency);
+    console.log(this.api.user_country);
+    if(this.api.user_currency ==undefined && this.api.user_country==undefined && this.api.currency_value ==undefined){
 
 
     this.api.getUser(localStorage.getItem('userId')).pipe(first()).toPromise().then((res:any)=>{

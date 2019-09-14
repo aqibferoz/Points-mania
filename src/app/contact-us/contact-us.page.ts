@@ -14,6 +14,7 @@ subject;
 message;
 email;
 username;
+date=Date.now();
   constructor(private api:ApiService,private helper:HelperService) { }
 
   ngOnInit() {
@@ -43,7 +44,7 @@ otherQuery(){
       subject:this.subject,
       message:this.message,
       type:"other",
-      created:Date.now()
+      created:this.date
     }
     console.log(data);
     this.api.submitQuery(data).then(res=>{
@@ -70,13 +71,14 @@ orderQuery(){
   ){
     this.helper.presentLoading('Submitting your request..');
     let data={
+      created:this.date,
       name:this.username,
       email:this.email,
       subject:this.subject,
       message:this.message,
       orderNo:this.orderNo,
       type:"order",
-      created:Date.now()
+     
     }
     console.log(data);
     this.api.submitQuery(data).then(res=>{

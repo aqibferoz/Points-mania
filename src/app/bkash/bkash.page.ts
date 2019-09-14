@@ -45,5 +45,9 @@ copyText(text){
   this.clip.copy(text);
   this.helper.presentToast('Ref# Copied on Clipboard !')
 }
+ionViewDidLeave() {
+  this.currentOrder=[];
+  this.time=null;
+}
 
 }

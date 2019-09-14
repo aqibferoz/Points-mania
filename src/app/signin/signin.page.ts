@@ -52,6 +52,7 @@ export class SigninPage implements OnInit {
         this.auth.login(this.username, this.password).then(res => {
           this.helper.dismissLoad();
           this.helper.presentToast('Login successfully')
+          localStorage.setItem('userId',res.user.uid);
         
           this.router.navigate(['/games'])
           console.log('loged in')

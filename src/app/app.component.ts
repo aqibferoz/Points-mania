@@ -75,6 +75,10 @@ export class AppComponent {
   }
   logout(){
   localStorage.clear();
+  this.api.user_country=null;
+  this.api.currency_value=null;
+this.api.user_currency=null;
+  
 this.nav.navigateRoot(['signin']);
   }
 }
