@@ -24,7 +24,7 @@ order={
   postCode:0,
   charges:0,
   chargesName:'',
-  createdDate:'this.date',
+  createdDate:this.date,
   payment:false,
 
  status:'notDelivered'
