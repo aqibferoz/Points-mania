@@ -4,7 +4,7 @@ import { ApiService } from '../services/api/api.service';
 import {map, first} from 'rxjs/operators'
 import { HelperService } from '../services/helper/helper.service';
 import { MenuController } from '@ionic/angular';
-import undefined = require('firebase/empty-import');
+
 
 @Component({
   selector: 'app-games',

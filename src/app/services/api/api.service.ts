@@ -24,7 +24,7 @@ order={
   postCode:0,
   charges:0,
   chargesName:'',
-  createdDate:this.date,
+  createdDate:Date.now(),
   payment:false,
 
  status:'notDelivered'
@@ -44,7 +44,7 @@ gameOrder={
   currency:'',
   charges:0,
   chargesName:'',
-  createdDate:this.date,
+  createdDate:Date.now(),
   payment:false,
   delivered:false,
   status:'notDelivered'
