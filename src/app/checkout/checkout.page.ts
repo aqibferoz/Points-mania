@@ -24,6 +24,9 @@ userName;
   constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit() {
+    this.api.order.createdDate=0;
+    this.api.gameOrder.createdDate=0;
+    console.log(this.api.order.createdDate);
     this.api.getUser(localStorage.getItem('userId')).pipe(first()).toPromise().then((resp:any)=>{
       this.email=resp.email;
       this.country=resp.userCountry;
@@ -85,6 +88,7 @@ this.api.order.lastName=this.lname;
 this.api.order.country=this.country;
 this.api.order.phoneNumber=this.phone_number;
 this.api.order.postCode=this.post_code;
+this.api.order.createdDate=Date.now();
 
 this.api.order.totalAmount=this.totalAmount;
 this.api.order.customerUserName=this.userName;
@@ -124,6 +128,7 @@ this.api.gameOrder.customerId=localStorage.getItem('userId');
 this.api.gameOrder.customerEmail=this.email;
 this.api.gameOrder.currency=this.c_symbol;
 this.api.gameOrder.customerUserName=this.userName;
+this.api.gameOrder.createdDate=Date.now();
 let data={
   firstName:this.fname,
   lastName:this.lname,

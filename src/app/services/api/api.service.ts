@@ -24,13 +24,14 @@ order={
   postCode:0,
   charges:0,
   chargesName:'',
-  createdDate:Date.now(),
+  createdDate:0,
   payment:false,
 
  status:'notDelivered'
 
 
 }
+previousOrders:any;
 gameOrder={
   type:'game',
   cart:[],
@@ -44,7 +45,7 @@ gameOrder={
   currency:'',
   charges:0,
   chargesName:'',
-  createdDate:Date.now(),
+  createdDate:0,
   payment:false,
   delivered:false,
   status:'notDelivered'

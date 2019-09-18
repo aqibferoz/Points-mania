@@ -4,6 +4,7 @@ import { ApiService } from '../services/api/api.service';
 import {map, first} from 'rxjs/operators'
 import { HelperService } from '../services/helper/helper.service';
 import { MenuController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -21,11 +22,24 @@ dummyGames;
 dummyPlayCards;
 filterText;
 notFound=false;
+contactsSub: Subscription;
   constructor(private router :Router,private api:ApiService,private helper:HelperService,private menu:MenuController) { 
     this.menu.enable(true);
   }
 
   ngOnInit() {
+this.contactsSub=    this.api.getOrders(localStorage.getItem('userId')).pipe(map(list=>list.map(item=>{
+      let data =item.payload.doc.data();
+      let id =item.payload.doc.id;
+      return{id,...data}
+    }))).subscribe(res=>{
+  console.log(res);
+ this.api.previousOrders=res;
+    })
+ 
+
+
+
 this.helper.presentLoading('');
     console.log(this.api.currency_value);
     console.log(this.api.user_currency);
@@ -61,7 +75,7 @@ this.api.currency_value=b[0]
 
     });
   }else{
-    alert('else')
+    
     this.c_symbol=this.api.user_currency;
     this.getGames();
     this.getPlayCard();
@@ -169,5 +183,9 @@ console.log(this.games);
     this.products=this.dummyProducts
     this.games=this.dummyGames;
   }
+}
+ionViewWillLeave(){
+
+  this.contactsSub.unsubscribe();
 }
 }

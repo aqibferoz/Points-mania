@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
 import { NavController } from '@ionic/angular';
+import{map}from 'rxjs/operators';
 
 @Component({
   selector: 'app-choose-payment',
@@ -16,6 +17,7 @@ c_symbol;
     }
     this.c_symbol=this.api.user_currency;
     console.log(this.c_symbol);
+
    }
 
   ngOnInit() {
@@ -24,6 +26,7 @@ card(){
 this.router.navigate(['/stripe']);
 }
 bkash(){
+
 
   if(this.api.order.cart.length>0){
     console.log(this.api.order);

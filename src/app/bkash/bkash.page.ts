@@ -14,9 +14,14 @@ export class BkashPage implements OnInit {
 currentOrder;
 time;
 id;
-  constructor(private api:ApiService,private clip:Clipboard,private helper:HelperService) { }
+  constructor(private api:ApiService,private clip:Clipboard,private helper:HelperService) { 
 
-  ngOnInit() {this.getOrder();
+    console.log(this.api.previousOrders);
+    this.getOrder();
+  }
+
+  ngOnInit() {
+    // this.getOrder();
   }
 getOrder(){
   this.api.getCurrentOrder(localStorage.getItem('userId')).pipe(map(list=>list.map(item=>{
@@ -24,10 +29,24 @@ getOrder(){
     let id =item.payload.doc.id;
     return{id,...data}
   })),first()).subscribe((res:any)=>{
+    let oldArray=[];
+  this.api.previousOrders.forEach(element => {
+    oldArray.push(element.id)
+  });
+  let newArray=[];
+  res.forEach(element => {
+    newArray.push(element.id)
+  });
+
+  var array3 = newArray.filter(function(obj) { return oldArray.indexOf(obj) == -1; });
+  console.log(array3);
+  this.api.getSingleOrder(array3[0]).subscribe((resp:any)=>{
+    this.currentOrder=resp;
+
 console.log(res);
-this.currentOrder=res[0];
+this.currentOrder.id=array3[0];
 this.id=this.currentOrder.id;
-var day = new Date(res[0].createdDate);
+var day = new Date(resp.createdDate);
 var nextDay = new Date(day);
       nextDay.setDate(day.getDate() + 1);
 console.log(nextDay);
@@ -39,6 +58,7 @@ var dif = t1.getTime() - t2.getTime();
 var Seconds_from_T1_to_T2 = dif / 1000;
 var Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
 this.time=Seconds_Between_Dates;
+})
   })
 }
 copyText(text){
@@ -48,6 +68,9 @@ copyText(text){
 ionViewDidLeave() {
   this.currentOrder=[];
   this.time=null;
+}
+ionViewDidEnter() {
+this.getOrder();
 }
 
 }
