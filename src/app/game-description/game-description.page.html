@@ -27,12 +27,12 @@
 
   <ion-row *ngFor="let item of prd.packages">
     <ion-col size="2">
-      <img *ngIf="item.type=='diamond'" src="../../assets/icon/diamond.svg">
-      <img *ngIf="item.type=='coin'"  src="../../assets/icon/coins.svg">
+      <img style="height: 45px !important" [src]="item.icon">
+  
     </ion-col>
     <ion-col size ='3'>
-      <div *ngIf="item.type=='diamond'" >Diamonds</div>
-      <div *ngIf="item.type=='coin'" >Coins</div>
+      <div  >{{item.type}}</div>
+    
       <div> <b style="color: black">{{item.quantity}}</b></div>
     </ion-col>
  <ion-col size="2"></ion-col>
