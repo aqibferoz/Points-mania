@@ -1,0 +1,101 @@
+
+    .footer{
+        background: transparent;
+    }
+    .footer-menu { 
+        height: 85px !important;
+        background-image: linear-gradient(#E86E19, #FFA602);
+        border: none !important;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        opacity: 1 !important;
+        .footer-ico-noti {
+            height: 58%;
+        }
+        .footer-ico-inbox {
+            height: 65%;
+        }
+        .footer-ico-com {
+            height: 75%;
+        }
+        .footer-ico-home {
+            height: 60%;
+        }
+        
+        .badge-cust{
+            position: absolute;
+            font-size: 10px;
+            margin-top: -4px;
+            margin-left: 15px;
+            min-width: 20px;
+            min-height: 20px;
+            line-height: 20px;
+            padding: 0 6px;
+            text-align: center;
+            color: #fff;
+            background-color: #f53d3d;
+            border-radius: 50%;
+        }
+        .badge-cust.msg{
+            margin-left: 20px;
+        }
+    }
+    .user-login-gender{
+        height: 50px;
+        width: 50px;
+        background-color: red;
+        border-radius: 50%;
+        margin-top: -26px;
+        overflow: hidden;
+        background-image: linear-gradient(27deg, rgba(0, 0, 0, 0.11), rgba(153, 79, 79, 0.8));
+        .user-footer-ico {
+            margin-top: 17px;
+            width: 35px;
+            height: 43px;
+        }
+    }
+    .user-icon-footer{
+        overflow: visible;
+    }
+    .footer-publish-story{
+        background-color: #493c94;
+        background-image: linear-gradient(#30C7DC, #051F90);
+        color: #fff;
+        .user-footer-ico{
+            margin-top: 6px !important;
+            font-size: 36px;
+        }
+    }
+
+    .user{
+        height: 50px;
+        width: 50px;
+        // background-color: red;
+        // border-radius: 50%;
+        margin-top: -26px;
+        overflow: hidden;
+        // background-image: linear-gradient(27deg, rgba(0, 0, 0, 0.11), rgba(153, 79, 79, 0.8));
+        .user-footer-ico {
+            margin-top: 17px;
+            width: 35px;
+            height: 43px;
+        }
+    }
+    .publish{
+        // background-color: #493c94;
+        // background-image: linear-gradient(#493c94, #a071bf);
+        color: #fff;
+        .user-footer-ico{
+            margin-top: 6px !important;
+            font-size: 36px;
+        }
+    }
+    .icon{
+        // margin-top: 17px;
+        margin-bottom: 20px;
+        // color: #29ADD0;
+            width: 35px;
+            height: 43px;
+    }
+
