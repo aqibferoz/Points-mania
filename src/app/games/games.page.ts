@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from '../services/api/api.service';
 import {map, first} from 'rxjs/operators'
 import { HelperService } from '../services/helper/helper.service';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 
 
@@ -23,7 +23,7 @@ dummyPlayCards;
 filterText;
 notFound=false;
 contactsSub: Subscription;
-  constructor(private router :Router,private api:ApiService,private helper:HelperService,private menu:MenuController) { 
+  constructor(private router :Router,private nav:NavController,private api:ApiService,private helper:HelperService,private menu:MenuController) { 
     this.menu.enable(true);
   }
 
@@ -187,5 +187,20 @@ console.log(this.games);
 ionViewWillLeave(){
 
   this.contactsSub.unsubscribe();
+}
+logout(){
+  let yes=()=>{
+    localStorage.clear();
+    this.api.user_country=null;
+    this.api.currency_value=null;
+  this.api.user_currency=null;
+    
+  this.nav.navigateRoot(['signin']);
+  }
+  let no=()=>{
+
+  }
+  this.helper.presentActionSheet('Do you want to logout?' ,'Yes','No', yes,no
+  )
 }
 }

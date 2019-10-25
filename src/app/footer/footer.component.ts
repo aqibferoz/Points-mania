@@ -10,5 +10,13 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
+order(){
 
+}
+home(){
+
+}
+contact(){
+  
+}
 }
