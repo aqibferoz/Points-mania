@@ -42,11 +42,11 @@
         }
     }
     .user-login-gender{
-        height: 50px;
-        width: 50px;
-        background-color: red;
+        height: 60px;
+        width: 60px;
+        // background-color: red;
         border-radius: 50%;
-        margin-top: -26px;
+        // margin-top: -26px;
         overflow: hidden;
         background-image: linear-gradient(27deg, rgba(0, 0, 0, 0.11), rgba(153, 79, 79, 0.8));
         .user-footer-ico {
@@ -99,3 +99,8 @@
             height: 43px;
     }
 
+.img{
+    width: 43px;
+    height: 43px;
+    
+}

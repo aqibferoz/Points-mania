@@ -1,37 +1,16 @@
 <ion-app  class="back" >
-    <ion-split-pane class="back" >
-    <ion-menu type="overlay">
+
 
       <ion-content class="back">
-
-        <div style="text-align: center !important;margin-top: 35px;">
-          <h2 style="color: #051F90 !important;">Menu</h2>
-        </div>
+</ion-content>
 
    
 
 
-        <ion-list no-padding lines="none" >
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages" lines="none" class="background">
-            <ion-item class="menu" text-center  [routerDirection]="'root'" [routerLink]="[p.url]" lines="none">
-             
-              
-              <ion-label lines="none" >
-                  <ion-icon  style="color:white" slot="start" [name]="p.icon"></ion-icon>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-        <div style="text-align: center !important;margin-top: 35px;" (click)="logout()">
-            <h3 style="color: #051F90 !important;">Logout</h3>
-          </div>
-      </ion-content>
-    </ion-menu>
  
   
     <ion-router-outlet main ></ion-router-outlet>
   
-</ion-split-pane>
+
 
 </ion-app>

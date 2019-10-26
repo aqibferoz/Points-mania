@@ -1,10 +1,8 @@
-<ion-footer style="height: 60px !important;" >
+<!-- <ion-footer style="height: 60px !important;" >
   <div>
       <ion-segment >
-          <!-- <ion-segment-button class="footer-menu" value="0" (click)="goToPage(0)">
-            <ion-icon class="user-footer-ico" name="add"></ion-icon>
-          </ion-segment-button> -->
-          <ion-segment-button class="footer-menu user-icon-footer" value="1" (click)="order()">
+   
+          <ion-segment-button class="footer-menu user-icon-footer" value="1" (click)="goToOrders(1)">
             <ion-icon class="user-footer-ico icon" name="list-box"></ion-icon>
           </ion-segment-button>
           <ion-segment-button class="footer-menu user-icon-footer" value="2" (click)="home()">
@@ -15,9 +13,25 @@
           <ion-segment-button class="footer-menu user-icon-footer" value="3" (click)="contact(3)">
             <ion-icon class="user-footer-ico icon" name="mail"></ion-icon>
           </ion-segment-button>
-          <!-- <ion-segment-button class="footer-menu" value="4" (click)="goToPage(4)">
-            <ion-icon class="user-footer-ico" name="add"></ion-icon>
-          </ion-segment-button> -->
+       
       </ion-segment>
   </div>
-</ion-footer>
+</ion-footer> -->
+<div class='row' class="foote" style="    display: flex;
+justify-content: space-around;margin-top: 10px;
+height:55px">
+
+    <img [src]="imageurl" class="img"   (click)="order()">
+
+
+
+<div class="user-login-gender footer-publish-story" style="margin:-20px !important">
+    <img src="../../assets/icon/home.png" class="img" style="margin: 8px;" (click)="home()">
+</div>
+
+    <img [src]="contacturl" class="img" (click)="contact()">
+
+
+
+
+</div>

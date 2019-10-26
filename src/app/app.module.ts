@@ -19,6 +19,7 @@ import{HttpClientModule,HttpClient}from '@angular/common/http';
 import{Stripe} from '@ionic-native/stripe/ngx';
 import { CountdownModule } from 'ngx-countdown';
 import { Clipboard } from '@ionic-native/clipboard/ngx';
+import{FooterComponent} from './footer/footer.component';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

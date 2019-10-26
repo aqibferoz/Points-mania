@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ContactUsPage } from './contact-us.page';
 
+import{ComponentModule}from '../footer/sharedComponent.module'
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ContactUsPage]

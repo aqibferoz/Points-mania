@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { GamesPage } from './games.page';
-import{FooterComponent} from '../footer/footer.component';
+import{ComponentModule} from '../footer/sharedComponent.module';
 
 const routes: Routes = [
   {
@@ -19,9 +19,10 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    ComponentModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GamesPage,FooterComponent]
+  declarations: [GamesPage]
 })
 export class GamesPageModule {}
